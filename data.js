@@ -1062,11 +1062,232 @@ const A1_T13 = {
 };
 
 /* ═══════════════════════════════════════════════
-   MAP GLOBALE
+   A1 · T14 — الأَلْوَانُ وَالأَشْكَالُ
+   Grammaire : حُرُوف الْعَطْف (conjonctions)
+═══════════════════════════════════════════════ */
+const A1_T14 = {
+  id:'a1-14', level:'A1',
+  titleW:'الأَلْوَانُ وَالأَشْكَالُ', titleP:'الألوان والأشكال',
+  titleFr:'Les couleurs et les formes',
+  sentences:[
+    [
+      {w:'يُحِبُّ أَحْمَدُ',t:'Ahmad aime'},
+      {w:'الأَلْوَانَ الزَّاهِيَةَ',t:'les couleurs vives (acc. pl.)'},
+    ],[
+      {w:'أَلْوَانُ قَوْسِ قُزَحَ',t:"les couleurs de l'arc-en-ciel (idāfa double)"},
+      {w:'جَمِيلَةٌ',t:'sont belles'},
+      {w:'الأَحْمَرُ وَالأَصْفَرُ',t:'le rouge et le jaune (conj. وَ)'},
+      {w:'وَالأَزْرَقُ وَالأَخْضَرُ',t:'et le bleu et le vert'},
+      {w:'وَالْبُرْتُقَالِيُّ',t:'et l'orange'},
+    ],[
+      {w:'غُرْفَتُهُ مَطْلِيَّةٌ',t:'sa chambre est peinte'},
+      {w:'بِاللَّوْنِ الأَزْرَقِ',t:'en bleu (prép. + idāfa)'},
+      {w:'لَا الأَحْمَرِ',t:'et non en rouge (négation coordination)'},
+    ],[
+      {w:'فِي الْفَصْلِ',t:'en classe'},
+      {w:'رَسَمَ',t:'il dessina (passé Form I · ر‑س‑م)'},
+      {w:'مُثَلَّثًا',t:'un triangle'},
+      {w:'وَمُرَبَّعًا',t:'et un carré'},
+      {w:'وَدَائِرَةً',t:'et un cercle'},
+    ],[
+      {w:'الْمُثَلَّثُ أَصْغَرُ',t:'le triangle est plus petit'},
+      {w:'لَكِنَّ الدَّائِرَةَ',t:'mais le cercle (لَكِنَّ + acc.)'},
+      {w:'أَكْبَرُ',t:'est plus grand'},
+    ],[
+      {w:'هَلِ الأَزْرَقُ',t:'est-ce que le bleu'},
+      {w:'أَوِ الأَخْضَرُ',t:'ou le vert (conj. أَوْ)'},
+      {w:'لَوْنُكَ الْمُفَضَّلُ؟',t:'est ta couleur préférée ?'},
+    ],
+  ],
+  vocabulary:[
+    {w:'لَوْن',p:'لون',tr:'lawn',fr:'couleur (pl. أَلْوَان)',fm:'Nom — schème فَعْل',root:'ل و ن'},
+    {w:'أَحْمَر',p:'أحمر',tr:'aḥmar',fr:'rouge (fém. حَمْرَاء)',fm:'Adjectif de couleur — schème أَفْعَل (diptote)',root:'ح م ر'},
+    {w:'أَصْفَر',p:'أصفر',tr:'aṣfar',fr:'jaune (fém. صَفْرَاء)',fm:'Adjectif de couleur — schème أَفْعَل (diptote)',root:'ص ف ر'},
+    {w:'أَزْرَق',p:'أزرق',tr:'azraq',fr:'bleu (fém. زَرْقَاء)',fm:'Adjectif de couleur — schème أَفْعَل (diptote)',root:'ز ر ق'},
+    {w:'أَخْضَر',p:'أخضر',tr:'akhḍar',fr:'vert (fém. خَضْرَاء)',fm:'Adjectif de couleur — schème أَفْعَل (diptote)',root:'خ ض ر'},
+    {w:'أَبْيَض',p:'أبيض',tr:'abyaḍ',fr:'blanc (fém. بَيْضَاء)',fm:'Adjectif de couleur — schème أَفْعَل (diptote)',root:'ب ي ض'},
+    {w:'أَسْوَد',p:'أسود',tr:'aswad',fr:'noir (fém. سَوْدَاء)',fm:'Adjectif de couleur — schème أَفْعَل (diptote)',root:'س و د'},
+    {w:'بُرْتُقَالِيّ',p:'برتقالي',tr:'burtuqālī',fr:'orange (couleur)',fm:'Adjectif de couleur (nisba)',root:'ب ر ت'},
+    {w:'قَوْس قُزَح',p:'قوس قزح',tr:'qaws quzaḥ',fr:'arc-en-ciel',fm:'Expression figée (arc + Quzaḥ)',root:'ق و س'},
+    {w:'زَاهٍ',p:'زاه',tr:'zāhin',fr:'vif, éclatant, brillant (couleur)',fm:'Adjectif — déficient',root:'ز ه و'},
+    {w:'مَطْلِيّ',p:'مطلي',tr:'maṭlī',fr:'peint, enduit (de peinture)',fm:'Participe passif Form I',root:'ط ل ي'},
+    {w:'شَكْل',p:'شكل',tr:'shakl',fr:'forme, figure (pl. أَشْكَال)',fm:'Nom — schème فَعْل',root:'ش ك ل'},
+    {w:'مُثَلَّث',p:'مثلث',tr:'muthallath',fr:'triangle',fm:'Participe passif Form II (ثَلَّثَ)',root:'ث ل ث'},
+    {w:'مُرَبَّع',p:'مربع',tr:"murabbāʿ",fr:'carré (forme géométrique)',fm:'Participe passif Form II (رَبَّعَ)',root:'ر ب ع'},
+    {w:'دَائِرَة',p:'دائرة',tr:"dāʾira",fr:'cercle, rond (pl. دَوَائِر)',fm:'Participe actif fém. Form I',root:'د و ر'},
+    {w:'رَسَمَ',p:'رسم',tr:'rasama',fr:'dessiner, tracer, peindre',fm:'Verbe Form I',root:'ر س م'},
+    {w:'مُفَضَّل',p:'مفضل',tr:"mufaḍḍal",fr:'préféré, favori',fm:'Participe passif Form II',root:'ف ض ل'},
+  ],
+  grammar:{
+    concept:'حُرُوفُ الْعَطْفِ — Les conjonctions de coordination',
+    excerptW:'الأَحْمَرُ وَالأَصْفَرُ · الأَزْرَقُ لَا الأَحْمَرُ · لَكِنَّ الدَّائِرَةَ أَكْبَرُ · الأَزْرَقُ أَوِ الأَخْضَرُ',
+    excerptP:'الأحمر والأصفر · الأزرق لا الأحمر · لكن الدائرة أكبر · الأزرق أو الأخضر',
+    exp:"Les conjonctions de coordination (حُرُوف العطف) relient deux mots ou deux phrases de même niveau syntaxique. Le second terme s'appelle <strong>الْمَعْطُوف</strong> et prend le même cas que le premier. Attention : <strong>لَكِنَّ</strong> (avec تشديد) est une sœur de إِنَّ et met le nom suivant à l'accusatif.",
+    gtblHeaders:['Conjonction','Transcription','Exemple','Rôle'],
+    table:[
+      {v:'وَ',f:'wa',m:'الأَحْمَرُ وَالأَزْرَقُ',fr:'et — simple addition'},
+      {v:'أَوْ',f:'aw',m:'الأَزْرَقُ أَوِ الأَخْضَرُ',fr:'ou — alternative'},
+      {v:'لَكِنَّ',f:'lākinna',m:'لَكِنَّ الدَّائِرَةَ أَكْبَرُ',fr:'mais — opposition (+ acc.)'},
+      {v:'لَكِنْ',f:'lākin',m:'هُوَ كَبِيرٌ لَكِنْ لَيْسَ كَبِيرًا جِدًّا',fr:'mais — opposition (+ phrase)'},
+      {v:'بَلْ',f:'bal',m:'لَيْسَ أَزْرَقَ بَلْ أَخْضَرُ',fr:'mais plutôt — rectification'},
+      {v:'لَا',f:'lā',m:'بِالأَزْرَقِ لَا الأَحْمَرِ',fr:'et non, ni — exclusion'},
+      {v:'فَ',f:'fa',m:'دَخَلَ فَجَلَسَ',fr:'et alors, donc — enchaînement'},
+      {v:'ثُمَّ',f:'thumma',m:'أَكَلَ ثُمَّ شَرِبَ',fr:'puis — séquence temporelle'},
+    ],
+    note:"<strong>وَ</strong> est la conjonction la plus fréquente — elle peut coordonner des mots ou des phrases entières. <strong>فَ</strong> implique une conséquence immédiate tandis que <strong>ثُمَّ</strong> marque un délai entre les actions.",
+  },
+};
+
+/* ═══════════════════════════════════════════════
+   A1 · T15 — الْمَدِينَةُ وَالشَّارِعُ
+   Grammaire : إِنَّ وَأَخَوَاتُهَا
+═══════════════════════════════════════════════ */
+const A1_T15 = {
+  id:'a1-15', level:'A1',
+  titleW:'الْمَدِينَةُ وَالشَّارِعُ', titleP:'المدينة والشارع',
+  titleFr:'La ville et la rue',
+  sentences:[
+    [
+      {w:'الْمَدِينَةُ',t:'la ville (sujet)'},
+      {w:'مَكَانٌ جَمِيلٌ',t:'un bel endroit (phrase nominale)'},
+      {w:'حَافِلٌ بِالْحَيَاةِ',t:'plein de vie'},
+    ],[
+      {w:'إِنَّ شَوَارِعَهَا',t:'certes ses rues (إِنَّ + acc.)'},
+      {w:'وَاسِعَةٌ',t:'sont larges (خبر, nominatif)'},
+      {w:'وَنَظِيفَةٌ',t:'et propres'},
+    ],[
+      {w:'فِيهَا حَدَائِقُ خَضْرَاءُ',t:'elle a des jardins verts (non-hum. pl. + f.sg.)'},
+      {w:'وَمَسَاجِدُ قَدِيمَةٌ',t:'et des mosquées anciennes'},
+    ],[
+      {w:'يَسِيرُ الْمُشَاةُ',t:'les piétons marchent (Form I · س‑ي‑ر)'},
+      {w:'عَلَى الأَرْصِفَةِ',t:'sur les trottoirs'},
+      {w:'وَتَمُرُّ السَّيَّارَاتُ',t:'et les voitures passent (Form I · م‑ر‑ر)'},
+      {w:'فِي الطُّرُقِ',t:'dans les rues'},
+    ],[
+      {w:'الْمَسْجِدُ',t:'la mosquée'},
+      {w:'فِي مَرْكَزِ الْمَدِينَةِ',t:'au centre-ville (idāfa double)'},
+      {w:'وَلَكِنَّ السُّوقَ',t:'mais le marché (لَكِنَّ + acc.)'},
+      {w:'بِجَانِبِهِ',t:'est à côté de lui'},
+    ],[
+      {w:'لَعَلَّ الْمَدِينَةَ الْقَدِيمَةَ',t:'peut-être que la vieille ville (لَعَلَّ + acc.)'},
+      {w:'أَجْمَلُ',t:'est plus belle'},
+      {w:'مِنَ الْحَدِيثَةِ',t:'que la moderne'},
+    ],
+  ],
+  vocabulary:[
+    {w:'مَكَان',p:'مكان',tr:'makān',fr:'lieu, endroit, place (pl. أَمَاكِن)',fm:'Nom — schème مَفْعَل',root:'ك و ن'},
+    {w:'حَافِل',p:'حافل',tr:'ḥāfil',fr:'plein de, rempli de',fm:'Adjectif — participe actif Form I',root:'ح ف ل'},
+    {w:'حَيَاة',p:'حياة',tr:'ḥayāh',fr:'vie, existence',fm:'Nom — schème فَعَالَة (défectueux)',root:'ح ي و'},
+    {w:'وَاسِع',p:'واسع',tr:'wāsiʿ',fr:'large, vaste, spacieux',fm:'Adjectif — participe actif Form I',root:'و س ع'},
+    {w:'مُشَاة',p:'مشاة',tr:'mushāh',fr:'piétons (pl. de مَاشٍ)',fm:'Pl. de participe actif Form I',root:'م ش ي'},
+    {w:'رَصِيف',p:'رصيف',tr:'raṣīf',fr:'trottoir, quai (pl. أَرْصِفَة)',fm:'Nom — schème فَعِيل',root:'ر ص ف'},
+    {w:'مَرَّ',p:'مر',tr:'marra',fr:'passer, traverser, s'écouler',fm:'Verbe Form I — géminé',root:'م ر ر'},
+    {w:'طَرِيق',p:'طريق',tr:'ṭarīq',fr:'route, chemin (pl. طُرُق)',fm:'Nom — schème فَعِيل',root:'ط ر ق'},
+    {w:'مَسْجِد',p:'مسجد',tr:'masjid',fr:'mosquée (pl. مَسَاجِد)',fm:'Nom de lieu — schème مَفْعِل',root:'س ج د'},
+    {w:'مَرْكَز',p:'مركز',tr:'markaz',fr:'centre, siège (pl. مَرَاكِز)',fm:'Nom — schème مَفْعَل',root:'ر ك ز'},
+    {w:'جَانِب',p:'جانب',tr:'jānib',fr:'côté, flanc (pl. جَوَانِب)',fm:'Nom — schème فَاعِل',root:'ج ن ب'},
+    {w:'سَارَ',p:'سار',tr:'sāra',fr:'marcher, avancer, aller',fm:'Verbe Form I — défectueux',root:'س ي ر'},
+    {w:'قَدِيم',p:'قديم',tr:'qadīm',fr:'vieux, ancien, antique',fm:'Adjectif — schème فَعِيل',root:'ق د م'},
+    {w:'إِنَّ',p:'إن',tr:'inna',fr:'certes, assurément (mise en valeur)',fm:"Particule d'emphase — sœur de كَانَ",root:'أ ن ن'},
+    {w:'لَعَلَّ',p:'لعل',tr:"laʿalla",fr:'peut-être que, espérons que',fm:"Particule souhait/doute — sœur de إِنَّ",root:'ل ع ل'},
+    {w:'أَجْمَل',p:'أجمل',tr:'ajmal',fr:'plus beau, le plus beau (élatif)',fm:'Adjectif élatif — schème أَفْعَل',root:'ج م ل'},
+  ],
+  grammar:{
+    concept:'إِنَّ وَأَخَوَاتُهَا — Les particules d'emphase',
+    excerptW:'إِنَّ شَوَارِعَهَا وَاسِعَةٌ · وَلَكِنَّ السُّوقَ بِجَانِبِهِ · لَعَلَّ الْمَدِينَةَ الْقَدِيمَةَ أَجْمَلُ',
+    excerptP:'إن شوارعها واسعة · ولكن السوق بجانبه · لعل المدينة القديمة أجمل',
+    exp:"Les sœurs de إِنَّ modifient la phrase nominale en sens inverse de <strong>كَانَ</strong> : elles mettent le <strong>sujet (اسمها) à l'accusatif</strong> et laissent le <strong>prédicat (خبرها) au nominatif</strong>. إِنَّ renforce l'assertion. لَكِنَّ exprime l'opposition. لَعَلَّ exprime le souhait ou le doute.",
+    gtblHeaders:['Particule','Transcription','Exemple','Sens / Fonction'],
+    table:[
+      {v:'إِنَّ',f:'inna',m:'إِنَّ أَحْمَدَ طَالِبٌ',fr:'certes Ahmad est étudiant (emphase)'},
+      {v:'أَنَّ',f:'anna',m:'أَعْرِفُ أَنَّ الدَّرْسَ صَعْبٌ',fr:'que la leçon est difficile (complétive)'},
+      {v:'لَكِنَّ',f:'lākinna',m:'هُوَ كَبِيرٌ لَكِنَّهُ طَيِّبٌ',fr:'mais il est gentil (opposition)'},
+      {v:'كَأَنَّ',f:"kaʾanna",m:'كَأَنَّ السَّمَاءَ مِرْآةٌ',fr:'comme si le ciel était un miroir'},
+      {v:'لَيْتَ',f:'layta',m:'لَيْتَ الطَّقْسَ دَافِئٌ',fr:'plût au ciel que le temps soit doux'},
+      {v:'لَعَلَّ',f:"laʿalla",m:'لَعَلَّ الْجَوَّ جَمِيلٌ غَدًا',fr:'peut-être que le temps sera beau demain'},
+    ],
+    note:"Comparez les deux structures : <strong>كَانَ</strong> → اسم مرفوع + خبر منصوب (était grand → كَانَ كَبِيرًا). <strong>إِنَّ</strong> → اسم منصوب + خبر مرفوع (certes il est grand → إِنَّهُ كَبِيرٌ). C'est l'inverse !",
+  },
+};
+
+/* ═══════════════════════════════════════════════
+   A1 · T16 — يَوْمٌ دِرَاسِيٌّ
+   Grammaire : مراجعة شاملة A1
+═══════════════════════════════════════════════ */
+const A1_T16 = {
+  id:'a1-16', level:'A1',
+  titleW:'يَوْمٌ دِرَاسِيٌّ', titleP:'يوم دراسي',
+  titleFr:'Une journée scolaire',
+  sentences:[
+    [
+      {w:'اسْتَيْقَظَ أَحْمَدُ',t:'Ahmad se réveilla (Form X · ي‑ق‑ظ)'},
+      {w:'صَبَاحًا مُبَكِّرًا',t:'tôt le matin (adverbe de temps + adj.)'},
+      {w:'وَلَبِسَ ثِيَابَهُ النَّظِيفَةَ',t:'et mit ses vêtements propres'},
+    ],[
+      {w:'أَكَلَ مَعَ أُسْرَتِهِ',t:'il mangea avec sa famille'},
+      {w:'فَطُورًا لَذِيذًا',t:'un délicieux petit-déjeuner'},
+      {w:'ثُمَّ ذَهَبَ إِلَى الْمَدْرَسَةِ',t:"puis il alla à l'école"},
+      {w:'مَاشِيًا',t:'en marchant (ḥāl — état du sujet)'},
+    ],[
+      {w:'فِي الْمَدْرَسَةِ',t:"à l'école"},
+      {w:'حَيَّا أَصْدِقَاءَهُ',t:'il salua ses amis (Form II · ح‑ي‑ي)'},
+      {w:'وَجَلَسَ فِي صَفِّهِ',t:'et s'assit dans sa classe'},
+    ],[
+      {w:'شَرَحَ الْمُعَلِّمُ',t:'le professeur expliqua'},
+      {w:'دَرْسًا جَدِيدًا',t:'une nouvelle leçon'},
+      {w:'وَكَتَبَ أَحْمَدُ',t:'et Ahmad écrivit'},
+      {w:'كُلَّ شَيْءٍ',t:'tout (litt. chaque chose)'},
+      {w:'فِي كُرَّاسَتِهِ',t:'dans son cahier'},
+    ],[
+      {w:'بَعْدَ الدِّرَاسَةِ',t:'après les cours'},
+      {w:'لَعِبَ',t:'il joua (Form I · ل‑ع‑ب)'},
+      {w:'مَعَ أَصْدِقَائِهِ',t:'avec ses amis'},
+      {w:'فِي الْمَلْعَبِ',t:'dans le terrain de jeux'},
+    ],[
+      {w:'ثُمَّ رَجَعَ إِلَى الْبَيْتِ',t:'puis il rentra à la maison'},
+      {w:'وَهُوَ فَرِحٌ',t:'et il était joyeux (ḥāl — phrase nominale)'},
+      {w:'وَمُتْعَبٌ',t:'et fatigué'},
+    ],
+  ],
+  vocabulary:[
+    {w:'اسْتَيْقَظَ',p:'استيقظ',tr:'istayqaẓa',fr:'se réveiller',fm:'Verbe Form X',root:'ي ق ظ'},
+    {w:'مُبَكِّر',p:'مبكر',tr:'mubakkir',fr:'tôt, de bonne heure, matinal',fm:'Participe actif Form II',root:'ب ك ر'},
+    {w:'فَطُور',p:'فطور',tr:'fuṭūr',fr:'petit-déjeuner',fm:'Nom — schème فَعُول',root:'ف ط ر'},
+    {w:'لَذِيذ',p:'لذيذ',tr:'ladhīdh',fr:'délicieux, savoureux',fm:'Adjectif — schème فَعِيل',root:'ل ذ ذ'},
+    {w:'مَاشٍ',p:'ماش',tr:'māshin',fr:'en marchant, marchant (participe)',fm:'Participe actif Form I — défectueux',root:'م ش ي'},
+    {w:'حَيَّا',p:'حيا',tr:'ḥayyā',fr:'saluer, accueillir, souhaiter longue vie',fm:'Verbe Form II — défectueux',root:'ح ي ي'},
+    {w:'جَلَسَ',p:'جلس',tr:'jalasa',fr:'s'asseoir, siéger',fm:'Verbe Form I',root:'ج ل س'},
+    {w:'لَعِبَ',p:'لعب',tr:"laʿiba",fr:'jouer',fm:'Verbe Form I',root:'ل ع ب'},
+    {w:'مَلْعَب',p:'ملعب',tr:"malʿab",fr:'terrain de jeux, stade (pl. مَلَاعِب)',fm:'Nom de lieu — schème مَفْعَل',root:'ل ع ب'},
+    {w:'مُتْعَب',p:'متعب',tr:"mutʿab",fr:'fatigué, épuisé',fm:'Participe passif Form IV',root:'ت ع ب'},
+    {w:'مَعَ',p:'مع',tr:"maʿa",fr:'avec, en compagnie de',fm:'Préposition',root:'م ع و'},
+  ],
+  grammar:{
+    concept:'مُرَاجَعَةٌ شَامِلَةٌ A1 — Révision générale',
+    excerptW:'يَوْمٌ دِرَاسِيٌّ يَجْمَعُ كُلَّ مَا تَعَلَّمْنَاهُ',
+    excerptP:'يوم دراسي يجمع كل ما تعلمناه',
+    exp:"Ce texte récapitulatif mobilise les <strong>huit structures fondamentales du niveau A1</strong>. À ce stade, vous devez reconnaître spontanément chacun de ces schémas à la lecture ou à l'écoute. Ce sont les fondations sur lesquelles repose tout l'arabe.",
+    gtblHeaders:['Concept','Nom français','Exemple du texte A1','Règle essentielle'],
+    table:[
+      {v:'الجملة الاسمية',f:'Phrase nominale',m:'هُوَ فَرِحٌ وَمُتْعَبٌ',fr:"Pas de verbe 'être' au présent"},
+      {v:'الجملة الفعلية',f:'Phrase verbale',m:'لَعِبَ أَحْمَدُ مَعَ أَصْدِقَائِهِ',fr:'Ordre VSO — verbe en premier'},
+      {v:'الإضافة',f:'Annexion nominale',m:'طُلَّابُ الْمَدْرَسَةِ',fr:'1er sans art./tanwīn, 2e au génitif'},
+      {v:'النَّعْت',f:'Accord adjectif',m:'دَرْسٌ جَدِيدٌ / الثِّيَابُ النَّظِيفَةُ',fr:'Accord en genre, nombre, cas, état'},
+      {v:'الفعل الماضي',f:'Passé',m:'اسْتَيْقَظَ · لَعِبَ · رَجَعَ',fr:'Suffixes personnels sur la racine'},
+      {v:'حروف الجر',f:'Prépositions',m:'مَعَ أَصْدِقَائِهِ · فِي الْمَلْعَبِ',fr:'Régissent le génitif (ـِ)'},
+      {v:'كَانَ وَأَخَوَاتُهَا',f:"Sœurs de kāna",m:'كَانَ فَرِحًا وَمُتْعَبًا',fr:'اسم marf.' + خبر manṣūb'},
+      {v:'إِنَّ وَأَخَوَاتُهَا',f:"Sœurs de inna",m:'إِنَّ يَوْمَهُ كَانَ جَمِيلًا',fr:'اسم manṣūb + خبر marf.' (inverse de كَانَ)'},
+    ],
+    note:"🎉 <strong>Félicitations</strong> — vous avez terminé le niveau A1 (16 textes · ~600 mots). Vous maîtrisez les fondations de l'arabe. Le niveau A2 introduira la conjugaison complète au présent, les formes verbales II-IV, et des textes plus riches.",
+  },
+};
+
+/* ═══════════════════════════════════════════════
+   MAP GLOBALE — A1 COMPLET (16/16)
 ═══════════════════════════════════════════════ */
 const TEXTS = {
-  A1: [A1_T1, A1_T2, A1_T3, A1_T4, A1_T5, A1_T6, A1_T7, A1_T8, A1_T9,
-       A1_T10, A1_T11, A1_T12, A1_T13],
+  A1: [A1_T1, A1_T2, A1_T3, A1_T4, A1_T5, A1_T6, A1_T7, A1_T8,
+       A1_T9, A1_T10, A1_T11, A1_T12, A1_T13, A1_T14, A1_T15, A1_T16],
   A2: [],
   B1: [],
   B2: [B2_T1],
