@@ -24,17 +24,17 @@ const A1_T1 = {
   titleW:'يَوْمٌ فِي الْمَدِينَةِ', titleP:'يوم في المدينة',
   titleFr:'Un jour dans la ville',
   sentences:[
-    [{w:'هَذَا',t:"voici, c'est — démonstratif masc."},{w:'أَحْمَدُ',t:'Ahmad — prénom masculin'}],
+    [{w:'هَذَا',t:"voici, c\'est — démonstratif masc."},{w:'أَحْمَدُ',t:'Ahmad — prénom masculin'}],
     [{w:'هُوَ',t:'il'},{w:'طَالِبٌ',t:'un étudiant (m.)'}],
     [{w:'يَسْكُنُ',t:'il habite, il réside (Form I · س‑ك‑ن)'},{w:'فِي',t:'dans, à, en'},{w:'الْمَدِينَةِ',t:'la ville'}],
-    [{w:'كُلَّ صَبَاحٍ',t:'chaque matin'},{w:'يَذْهَبُ',t:'il va, il part (Form I · ذ‑ه‑ب)'},{w:'إِلَى',t:"vers, à, jusqu'à"},{w:'الْمَدْرَسَةِ',t:"l'école"}],
-    [{w:'الْمَدْرَسَةُ',t:"l'école (sujet nominatif)"},{w:'كَبِيرَةٌ',t:'grande (adj. fém.)'},{w:'وَجَمِيلَةٌ',t:'et belle (adj. fém.)'}],
-    [{w:'فِيهَا',t:"en elle, à l'intérieur — fém."},{w:'أَصْدِقَاءٌ',t:'des amis (pl. brisé de صَدِيق)'},{w:'كَثِيرُونَ',t:'nombreux (pl. masc. sain)'}],
+    [{w:'كُلَّ صَبَاحٍ',t:'chaque matin'},{w:'يَذْهَبُ',t:'il va, il part (Form I · ذ‑ه‑ب)'},{w:'إِلَى',t:"vers, à, jusqu\'à"},{w:'الْمَدْرَسَةِ',t:"l\'école"}],
+    [{w:'الْمَدْرَسَةُ',t:"l\'école (sujet nominatif)"},{w:'كَبِيرَةٌ',t:'grande (adj. fém.)'},{w:'وَجَمِيلَةٌ',t:'et belle (adj. fém.)'}],
+    [{w:'فِيهَا',t:"en elle, à l\'intérieur — fém."},{w:'أَصْدِقَاءٌ',t:'des amis (pl. brisé de صَدِيق)'},{w:'كَثِيرُونَ',t:'nombreux (pl. masc. sain)'}],
     [{w:'بَعْدَ الدِّرَاسَةِ',t:"après les cours"},{w:'يَرْجِعُ',t:'il rentre (Form I · ر‑ج‑ع)'},{w:'أَحْمَدُ',t:'Ahmad'},{w:'إِلَى الْبَيْتِ',t:'à la maison'}],
     [{w:'هُوَ',t:'il'},{w:'سَعِيدٌ',t:'heureux (adj. · schème فَعِيل)'}],
   ],
   vocabulary:[
-    {w:'هَذَا',p:'هذا',tr:'hādhā',fr:"voici, c'est (démonstratif masc.)",fm:'Pronom démonstratif',root:'ه ذ'},
+    {w:'هَذَا',p:'هذا',tr:'hādhā',fr:"voici, c\'est (démonstratif masc.)",fm:'Pronom démonstratif',root:'ه ذ'},
     {w:'طَالِب',p:'طالب',tr:'ṭālib',fr:'étudiant, apprenant',fm:'Participe actif Form I — schème فَاعِل',root:'ط ل ب'},
     {w:'سَكَنَ',p:'سكن',tr:'sakana',fr:'habiter, résider',fm:'Verbe Form I',root:'س ك ن'},
     {w:'مَدِينَة',p:'مدينة',tr:'madīna',fr:'ville',fm:'Nom — schème مَفْعِلَة',root:'م د ن'},
@@ -53,15 +53,15 @@ const A1_T1 = {
     concept:'الجملة الاسمية — La phrase nominale',
     excerptW:'هُوَ طَالِبٌ · الْمَدْرَسَةُ كَبِيرَةٌ وَجَمِيلَةٌ · هُوَ سَعِيدٌ',
     excerptP:'هو طالب · المدرسة كبيرة وجميلة · هو سعيد',
-    exp:"En arabe, le verbe <strong>être</strong> au présent n'existe pas. Une phrase se forme avec un <strong>مُبْتَدَأ (sujet)</strong> + <strong>خَبَر (prédicat)</strong> sans aucun verbe. Les deux termes s'accordent en genre et en nombre.",
+    exp:"En arabe, le verbe <strong>être</strong> au présent n\'existe pas. Une phrase se forme avec un <strong>مُبْتَدَأ (sujet)</strong> + <strong>خَبَر (prédicat)</strong> sans aucun verbe. Les deux termes s\'accordent en genre et en nombre.",
     gtblHeaders:['مبتدأ (Sujet)','Rôle','خبر (Prédicat)','Traduction'],
     table:[
       {v:'هُوَ',f:'مبتدأ',m:'طَالِبٌ',fr:'Il est étudiant'},
-      {v:'الْمَدْرَسَةُ',f:'مبتدأ',m:'كَبِيرَةٌ وَجَمِيلَةٌ',fr:"L'école est grande et belle"},
+      {v:'الْمَدْرَسَةُ',f:'مبتدأ',m:'كَبِيرَةٌ وَجَمِيلَةٌ',fr:"L\'école est grande et belle"},
       {v:'فِيهَا',f:'مبتدأ (شبه جملة)',m:'أَصْدِقَاءٌ كَثِيرُونَ',fr:"Il y a de nombreux amis"},
       {v:'هُوَ',f:'مبتدأ',m:'سَعِيدٌ',fr:'Il est heureux'},
     ],
-    note:"Le <strong>tanwīn (ـٌ)</strong> sur le خبر indique qu'il est indéfini — طَالِبٌ = \"un étudiant\". Avec article : هُوَ الطَّالِبُ = \"il est l'étudiant\".",
+    note:"Le <strong>tanwīn (ـٌ)</strong> sur le خبر indique qu\'il est indéfini — طَالِبٌ = \"un étudiant\". Avec article : هُوَ الطَّالِبُ = \"il est l\'étudiant\".",
   },
 };
 
@@ -75,7 +75,7 @@ const A1_T2 = {
   titleFr:'La famille',
   sentences:[
     [
-      {w:'هَذِهِ',t:"voici, c'est — démonstratif fém."},
+      {w:'هَذِهِ',t:"voici, c\'est — démonstratif fém."},
       {w:'أُسْرَةُ مُحَمَّدٍ',t:"la famille de Mohammed (annexion nominale)"},
     ],[
       {w:'الأَبُ',t:'le père (sujet)'},
@@ -125,7 +125,7 @@ const A1_T2 = {
     concept:'المذكر والمؤنث — Genre masculin et féminin',
     excerptW:'الأَبُ · الأُمُّ · الأَخُ · الأُخْتُ · الْجَدُّ · الْجَدَّةُ',
     excerptP:'الأب · الأم · الأخ · الأخت · الجد · الجدة',
-    exp:"En arabe, chaque nom est <strong>masculin (مذكر)</strong> ou <strong>féminin (مؤنث)</strong>. La règle générale : le féminin se forme en ajoutant <strong>ة (tā marbūṭa)</strong>. Certains féminins sont <strong>irréguliers</strong> (بِنْت, أُخْت, أُمّ) — il faut les mémoriser. Les adjectifs s'accordent toujours avec le nom qu'ils qualifient.",
+    exp:"En arabe, chaque nom est <strong>masculin (مذكر)</strong> ou <strong>féminin (مؤنث)</strong>. La règle générale : le féminin se forme en ajoutant <strong>ة (tā marbūṭa)</strong>. Certains féminins sont <strong>irréguliers</strong> (بِنْت, أُخْت, أُمّ) — il faut les mémoriser. Les adjectifs s\'accordent toujours avec le nom qu\'ils qualifient.",
     gtblHeaders:['Masculin (مذكر)','↔','Féminin (مؤنث)','Remarque'],
     table:[
       {v:'أَبٌ',f:'←',m:'أُمٌّ',fr:'père / mère — paire irrégulière'},
@@ -202,7 +202,7 @@ const A1_T3 = {
     concept:'حُرُوفُ الْجَرِّ — Les prépositions',
     excerptW:'فِي شَارِعٍ · أَمَامَ الْبَيْتِ · فِيهَا أَزْهَارٌ',
     excerptP:'في شارع · أمام البيت · فيها أزهار',
-    exp:"En arabe, les prépositions (<strong>حُرُوف الجَرّ</strong>) sont suivies d'un nom au <strong>cas génitif (مَجْرُور)</strong>, reconnaissable à sa voyelle finale <strong>ـِ</strong> (kasra) ou tanwīn kasra <strong>ـٍ</strong>. La préposition peut aussi se fusionner avec un pronom : فِي + هِيَ → <strong>فِيهَا</strong>.",
+    exp:"En arabe, les prépositions (<strong>حُرُوف الجَرّ</strong>) sont suivies d\'un nom au <strong>cas génitif (مَجْرُور)</strong>, reconnaissable à sa voyelle finale <strong>ـِ</strong> (kasra) ou tanwīn kasra <strong>ـٍ</strong>. La préposition peut aussi se fusionner avec un pronom : فِي + هِيَ → <strong>فِيهَا</strong>.",
     gtblHeaders:['Préposition','Transcription','Sens','Exemple'],
     table:[
       {v:'فِي',f:'fī',m:'فِي الْبَيْتِ',fr:'dans — dans la maison'},
@@ -253,7 +253,7 @@ const A1_T4 = {
     ],[
       {w:'الطَّعَامُ الصِّحِّيُّ',t:'la nourriture saine'},
       {w:'يُقَوِّي الْجِسْمَ',t:'renforce le corps (Form II · ق‑و‑ي)'},
-      {w:'وَيُنَشِّطُ الْعَقْلَ',t:"et stimule l'esprit (Form II · ن‑ش‑ط)"},
+      {w:'وَيُنَشِّطُ الْعَقْلَ',t:"et stimule l\'esprit (Form II · ن‑ش‑ط)"},
     ],
   ],
   vocabulary:[
@@ -282,7 +282,7 @@ const A1_T4 = {
     concept:'الجملة الفعلية — La phrase verbale (ordre VSO)',
     excerptW:'يُحِبُّ أَحْمَدُ الطَّعَامَ · يَأْكُلُ خُبْزًا · يَشْرَبُ كُوبَ شَايٍ',
     excerptP:'يحب أحمد الطعام · يأكل خبزًا · يشرب كوب شاي',
-    exp:"La phrase verbale arabe suit l'ordre <strong>Verbe — Sujet — Objet (VSO)</strong>, l'inverse du français. Le verbe s'accorde en genre avec le sujet mais reste au <strong>singulier</strong> même si le sujet est pluriel (accord partiel). L'objet se met à l'<strong>accusatif (ـَ / ـًا)</strong>.",
+    exp:"La phrase verbale arabe suit l\'ordre <strong>Verbe — Sujet — Objet (VSO)</strong>, l\'inverse du français. Le verbe s\'accorde en genre avec le sujet mais reste au <strong>singulier</strong> même si le sujet est pluriel (accord partiel). L\'objet se met à l'<strong>accusatif (ـَ / ـًا)</strong>.",
     gtblHeaders:['Verbe (فِعْل)','Sujet (فَاعِل)','Objet (مَفْعُول بِهِ)','Traduction'],
     table:[
       {v:'يُحِبُّ',f:'أَحْمَدُ',m:'الطَّعَامَ',fr:'Ahmad aime la nourriture'},
@@ -304,7 +304,7 @@ const A1_T5 = {
   titleFr:'Le corps humain et la santé',
   sentences:[
     [
-      {w:'جِسْمُ الإِنْسَانِ',t:"le corps de l'être humain (annexion)"},
+      {w:'جِسْمُ الإِنْسَانِ',t:"le corps de l\'être humain (annexion)"},
       {w:'مِنْ أَعَاجِيبِ اللهِ',t:'parmi les merveilles de Dieu'},
     ],[
       {w:'الرَّأْسُ',t:'la tête'},
@@ -324,7 +324,7 @@ const A1_T5 = {
       {w:'كُلُوا الْخُضَارَ وَالْفَوَاكِهَ',t:'mangez les légumes et les fruits (impératif pl.)'},
       {w:'وَامْشُوا كُلَّ يَوْمٍ',t:'et marchez chaque jour (impératif pl.)'},
     ],[
-      {w:'إِذَا مَرِضَ الإِنْسَانُ',t:"si l'être humain tombe malade"},
+      {w:'إِذَا مَرِضَ الإِنْسَانُ',t:"si l\'être humain tombe malade"},
       {w:'يَذْهَبُ',t:'il va'},
       {w:'إِلَى الطَّبِيبِ',t:'chez le médecin'},
     ],
@@ -352,7 +352,7 @@ const A1_T5 = {
     concept:'أَدَوَاتُ الاسْتِفْهَامِ — Les mots interrogatifs',
     excerptW:'مَنْ هَذَا؟ · مَاذَا تَأْكُلُ؟ · أَيْنَ الطَّبِيبُ؟ · كَيْفَ صِحَّتُكَ؟',
     excerptP:'من هذا؟ · ماذا تأكل؟ · أين الطبيب؟ · كيف صحتك؟',
-    exp:"Les interrogatifs arabes se placent en <strong>tête de phrase</strong>. Contrairement au français, il n'y a pas d'inversion sujet-verbe : <strong>أَيْنَ يَسْكُنُ أَحْمَدُ؟</strong> = \"Où habite Ahmad ?\" (litt. Où habite Ahmad). Pour les questions fermées (oui/non), on utilise <strong>هَلْ</strong> ou <strong>أَ</strong> devant une phrase normale.",
+    exp:"Les interrogatifs arabes se placent en <strong>tête de phrase</strong>. Contrairement au français, il n\'y a pas d\'inversion sujet-verbe : <strong>أَيْنَ يَسْكُنُ أَحْمَدُ؟</strong> = \"Où habite Ahmad ?\" (litt. Où habite Ahmad). Pour les questions fermées (oui/non), on utilise <strong>هَلْ</strong> ou <strong>أَ</strong> devant une phrase normale.",
     gtblHeaders:['Interrogatif','Transcription','Sens','Exemple'],
     table:[
       {v:'مَنْ؟',f:'man',m:'مَنْ هَذَا؟',fr:"Qui est-ce ?"},
@@ -361,7 +361,7 @@ const A1_T5 = {
       {v:'مَتَى؟',f:'matā',m:'مَتَى تَذْهَبُ؟',fr:"Quand pars-tu ?"},
       {v:'كَيْفَ؟',f:'kayfa',m:'كَيْفَ صِحَّتُكَ؟',fr:"Comment va ta santé ?"},
       {v:'لِمَاذَا؟',f:'limādhā',m:'لِمَاذَا تَمْشِي؟',fr:"Pourquoi marches-tu ?"},
-      {v:'كَمْ؟',f:'kam',m:'كَمْ عَيْنًا لَدَيْكَ؟',fr:"Combien d'yeux as-tu ?"},
+      {v:'كَمْ؟',f:'kam',m:'كَمْ عَيْنًا لَدَيْكَ؟',fr:"Combien d\'yeux as-tu ?"},
       {v:'هَلْ؟',f:'hal',m:'هَلْ أَنْتَ بِخَيْرٍ؟',fr:"Es-tu en bonne santé ?"},
     ],
     note:'<strong>مَا</strong> s\'utilise devant un nom (مَا اسْمُكَ؟ = Quel est ton nom ?) tandis que <strong>مَاذَا</strong> s\'utilise devant un verbe (مَاذَا تَفْعَلُ؟ = Que fais-tu ?).',
@@ -375,7 +375,7 @@ const A1_T5 = {
 const B2_T1 = {
   id:'b2-1', level:'B2',
   titleW:'التَّعْلِيمُ فِي الْعَصْرِ الرَّقْمِيِّ', titleP:'التعليم في العصر الرقمي',
-  titleFr:"L'éducation à l'ère numérique",
+  titleFr:"L\'éducation à l\'ère numérique",
   sentences:[
     [
       {w:'أَحْدَثَتِ',t:'a provoqué / causé (Form IV · ح‑د‑ث)'},
@@ -383,17 +383,17 @@ const B2_T1 = {
       {w:'ثَوْرَةً',t:'une révolution'},
       {w:'حَقِيقِيَّةً',t:'véritable, réelle'},
       {w:'فِي مَجَالِ',t:'dans le domaine de'},
-      {w:'التَّعْلِيمِ',t:"l'éducation, l'enseignement"},
+      {w:'التَّعْلِيمِ',t:"l\'éducation, l\'enseignement"},
     ],[
-      {w:'فَبَعْدَ أَنْ كَانَ',t:"alors qu'autrefois"},
+      {w:'فَبَعْدَ أَنْ كَانَ',t:"alors qu\'autrefois"},
       {w:'الطُّلَّابُ',t:'les étudiants'},
       {w:'يَعْتَمِدُونَ',t:"dépendaient de (Form VIII · ع‑م‑د)"},
       {w:'اعْتِمَادًا كُلِّيًّا',t:'entièrement (accusatif absolu)'},
       {w:'عَلَى الْكُتُبِ',t:'sur les livres'},
       {w:'وَالْفُصُولِ الدِّرَاسِيَّةِ',t:'et les salles de classe'},
       {w:'أَصْبَحَ بِإِمْكَانِهِمُ',t:'il leur est désormais possible'},
-      {w:'الْيَوْمَ',t:"aujourd'hui"},
-      {w:'الْوُصُولُ',t:"l'accès (masdar de وَصَلَ)"},
+      {w:'الْيَوْمَ',t:"aujourd\'hui"},
+      {w:'الْوُصُولُ',t:"l\'accès (masdar de وَصَلَ)"},
       {w:'إِلَى مَصَادِرَ',t:'à des sources'},
       {w:'لَا حَصْرَ لَهَا',t:'innombrables, sans limite'},
       {w:'عَبْرَ الْإِنْتَرْنِتِ',t:'via internet'},
@@ -402,7 +402,7 @@ const B2_T1 = {
       {w:'الْمُرَبِّينَ',t:'les éducateurs, les pédagogues'},
       {w:'أَنَّ هَذَا التَّحَوُّلَ',t:'que cette transformation (masdar Form V)'},
       {w:'يُتِيحُ',t:'permet, offre (Form IV · أَتَاحَ)'},
-      {w:'لِلْمُتَعَلِّمِ',t:"à l'apprenant (participe actif Form V)"},
+      {w:'لِلْمُتَعَلِّمِ',t:"à l\'apprenant (participe actif Form V)"},
       {w:'حُرِّيَّةً أَكْبَرَ',t:'une plus grande liberté'},
       {w:'فِي اخْتِيَارِ مُحْتَوَاهُ',t:'dans le choix de son contenu (masdar Form VIII)'},
       {w:'وَتَحْدِيدِ',t:'et la définition (masdar Form II)'},
@@ -411,11 +411,11 @@ const B2_T1 = {
       {w:'غَيْرَ أَنَّ',t:'cependant, toutefois'},
       {w:'ثَمَّةَ',t:'il existe, il y a (particule existentielle)'},
       {w:'تَحَدِّيَاتٍ جِدِّيَّةً',t:'des défis sérieux'},
-      {w:'لَا يُمْكِنُ إِغْفَالُهَا',t:"qu'on ne peut ignorer (masdar Form IV)"},
+      {w:'لَا يُمْكِنُ إِغْفَالُهَا',t:"qu\'on ne peut ignorer (masdar Form IV)"},
       {w:'مِنْهَا',t:'parmi eux'},
       {w:'ضَعْفُ الرَّبْطِ بِالشَّبَكَةِ',t:'la faiblesse de la connexion réseau'},
       {w:'فِي الْمَنَاطِقِ النَّائِيَةِ',t:'dans les régions reculées'},
-      {w:'وَمَا يُسَمَّى',t:"et ce qu'on appelle (passif Form II)"},
+      {w:'وَمَا يُسَمَّى',t:"et ce qu\'on appelle (passif Form II)"},
       {w:'بِالْهُوَّةِ الرَّقْمِيَّةِ',t:'la fracture numérique'},
       {w:'الَّتِي تُكَرِّسُ',t:'qui perpétue (Form II)'},
       {w:'الْفَوَارِقَ الاجْتِمَاعِيَّةَ',t:'les inégalités sociales'},
@@ -423,10 +423,10 @@ const B2_T1 = {
       {w:'وَخَلَصَ',t:'et ils ont conclu'},
       {w:'بَعْضُ الْبَاحِثِينَ',t:'certains chercheurs'},
       {w:'إِلَى أَنَّ',t:'à la conclusion que'},
-      {w:'التَّعْلِيمَ الْهَجِينَ',t:"l'enseignement hybride"},
+      {w:'التَّعْلِيمَ الْهَجِينَ',t:"l\'enseignement hybride"},
       {w:'الَّذِي يَجْمَعُ بَيْنَ',t:'qui combine'},
       {w:'الْحُضُورِ الْجِسْدِيِّ',t:'la présence physique (masdar Form I)'},
-      {w:'وَالتَّعَلُّمِ الْإِلِكْتُرُونِيِّ',t:"et l'apprentissage en ligne (masdar Form V)"},
+      {w:'وَالتَّعَلُّمِ الْإِلِكْتُرُونِيِّ',t:"et l\'apprentissage en ligne (masdar Form V)"},
       {w:'قَدْ يَكُونُ',t:"pourrait être (قَدْ + muḍāriʿ)"},
       {w:'الْحَلَّ الأَمْثَلَ',t:'la solution optimale'},
       {w:'لِمُوَاجَهَةِ هَذِهِ التَّحَدِّيَاتِ',t:'pour faire face à ces défis (masdar Form III)'},
@@ -435,7 +435,7 @@ const B2_T1 = {
   vocabulary:[
     {w:'أَحْدَثَ',p:'أحدث',tr:'aḥdatha',fr:'provoquer, causer',fm:'Verbe Form IV',root:'ح د ث'},
     {w:'ثَوْرَة',p:'ثورة',tr:'thawra',fr:'révolution',fm:'Nom · schème فَعْلَة',root:'ث و ر'},
-    {w:'اعْتَمَدَ عَلَى',p:'اعتمد على',tr:"iʿtamada ʿalā",fr:"dépendre de, s'appuyer sur",fm:'Verbe Form VIII',root:'ع م د'},
+    {w:'اعْتَمَدَ عَلَى',p:'اعتمد على',tr:"iʿtamada ʿalā",fr:"dépendre de, s\'appuyer sur",fm:'Verbe Form VIII',root:'ع م د'},
     {w:'وُصُول',p:'وصول',tr:'wuṣūl',fr:'accès, arrivée',fm:'Masdar Form I (وَصَلَ)',root:'و ص ل'},
     {w:'مَصَادِر',p:'مصادر',tr:'maṣādir',fr:'sources (pl.)',fm:'Pl. de مَصْدَر · schème مَفَاعِل',root:'ص د ر'},
     {w:'تَحَوُّل',p:'تحول',tr:'taḥawwul',fr:'transformation',fm:'Masdar Form V',root:'ح و ل'},
@@ -444,7 +444,7 @@ const B2_T1 = {
     {w:'اخْتِيَار',p:'اختيار',tr:'ikhtiyār',fr:'choix',fm:'Masdar Form VIII',root:'خ ي ر'},
     {w:'وَتِيرَة',p:'وتيرة',tr:'watīra',fr:'rythme, cadence',fm:'Nom · schème فَعِيلَة',root:'و ت ر'},
     {w:'تَعَلُّم',p:'تعلم',tr:"taʿallum",fr:'apprentissage',fm:'Masdar Form V',root:'ع ل م'},
-    {w:'إِغْفَال',p:'إغفال',tr:"ighfāl",fr:"fait d'ignorer",fm:'Masdar Form IV',root:'غ ف ل'},
+    {w:'إِغْفَال',p:'إغفال',tr:"ighfāl",fr:"fait d\'ignorer",fm:'Masdar Form IV',root:'غ ف ل'},
     {w:'هُوَّة رَقْمِيَّة',p:'هوة رقمية',tr:'huwwa raqmiyya',fr:'fracture numérique',fm:'Expression nominale',root:'—'},
     {w:'كَرَّسَ',p:'كرس',tr:'karrasa',fr:'perpétuer, consolider',fm:'Verbe Form II',root:'ك ر س'},
     {w:'فَوَارِق',p:'فوارق',tr:'fawāriq',fr:'inégalités, écarts',fm:'Pl. de فَارِق · schème فَوَاعِل',root:'ف ر ق'},
@@ -456,16 +456,16 @@ const B2_T1 = {
     concept:'المصدر الصريح — Le nom verbal (masdar)',
     excerptW:'أَصْبَحَ بِإِمْكَانِهِمُ الْوُصُولُ … وَتَحْدِيدِ وَتِيرَةِ تَعَلُّمِهِ … لَا يُمْكِنُ إِغْفَالُهَا',
     excerptP:'أصبح بإمكانهم الوصول … وتحديد وتيرة تعلمه … لا يمكن إغفالها',
-    exp:"Le <strong>masdar (المصدر)</strong> est le nom verbal : il nominalise l'action et peut être sujet, objet ou régime d'une préposition. Les formes II à X ont des masdar <strong>totalement réguliers et prévisibles</strong>.",
+    exp:"Le <strong>masdar (المصدر)</strong> est le nom verbal : il nominalise l\'action et peut être sujet, objet ou régime d\'une préposition. Les formes II à X ont des masdar <strong>totalement réguliers et prévisibles</strong>.",
     gtblHeaders:['Verbe','Forme','Masdar','Signification'],
     table:[
-      {v:'وَصَلَ',f:'Form I',m:'وُصُول',fr:"l'accès"},
+      {v:'وَصَلَ',f:'Form I',m:'وُصُول',fr:"l\'accès"},
       {v:'اعْتَمَدَ',f:'Form VIII',m:'اعْتِمَاد',fr:'la dépendance'},
       {v:'تَحَوَّلَ',f:'Form V',m:'تَحَوُّل',fr:'la transformation'},
       {v:'اخْتَارَ',f:'Form VIII',m:'اخْتِيَار',fr:'le choix'},
       {v:'حَدَّدَ',f:'Form II',m:'تَحْدِيد',fr:'la détermination'},
-      {v:'تَعَلَّمَ',f:'Form V',m:'تَعَلُّم',fr:"l'apprentissage"},
-      {v:'أَغْفَلَ',f:'Form IV',m:'إِغْفَال',fr:"le fait d'ignorer"},
+      {v:'تَعَلَّمَ',f:'Form V',m:'تَعَلُّم',fr:"l\'apprentissage"},
+      {v:'أَغْفَلَ',f:'Form IV',m:'إِغْفَال',fr:"le fait d\'ignorer"},
       {v:'وَاجَهَ',f:'Form III',m:'مُوَاجَهَة',fr:'le fait de faire face'},
     ],
     note:'Schèmes : Form II → <strong>تَفْعِيل</strong> · Form III → <strong>مُفَاعَلَة</strong> · Form IV → <strong>إِفْعَال</strong> · Form V → <strong>تَفَعُّل</strong> · Form VIII → <strong>اِفْتِعَال</strong>.',
@@ -502,7 +502,7 @@ const A1_T6 = {
       {w:'ثَوْبًا جَمِيلًا',t:'une belle robe'},
       {w:'وَحِجَابًا',t:'et un hidjab'},
     ],[
-      {w:'فِي الْمَدْرَسَةِ',t:"à l'école"},
+      {w:'فِي الْمَدْرَسَةِ',t:"à l\'école"},
       {w:'يَلْبَسُ الطُّلَّابُ',t:'les étudiants portent'},
       {w:'زِيًّا مُوَحَّدًا',t:'un uniforme'},
     ],[
@@ -533,7 +533,7 @@ const A1_T6 = {
     concept:'الْمُفْرَدُ وَالْجَمْعُ — Singulier et pluriel',
     excerptW:'ثَوْبٌ ← ثِيَابٌ · طَالِبٌ ← طُلَّابٌ · حِذَاءٌ ← أَحْذِيَةٌ · مُعَلِّمٌ ← مُعَلِّمُونَ',
     excerptP:'ثوب ← ثياب · طالب ← طلاب · حذاء ← أحذية · معلم ← معلمون',
-    exp:"L'arabe a trois types de pluriel. <strong>① Pluriel sain masculin</strong> : ajouter ـُونَ / ـِينَ. <strong>② Pluriel sain féminin</strong> : ajouter ـَات. <strong>③ Pluriel brisé (جَمْع التَّكْسِير)</strong> : la structure interne change — c'est le plus fréquent et il faut le mémoriser mot à mot.",
+    exp:"L\'arabe a trois types de pluriel. <strong>① Pluriel sain masculin</strong> : ajouter ـُونَ / ـِينَ. <strong>② Pluriel sain féminin</strong> : ajouter ـَات. <strong>③ Pluriel brisé (جَمْع التَّكْسِير)</strong> : la structure interne change — c\'est le plus fréquent et il faut le mémoriser mot à mot.",
     gtblHeaders:['Singulier','Type','Pluriel','Signification'],
     table:[
       {v:'ثَوْبٌ',f:'pl. brisé',m:'ثِيَابٌ',fr:'vêtement(s)'},
@@ -557,13 +557,13 @@ const A1_T7 = {
   titleFr:'La météo et les saisons',
   sentences:[
     [
-      {w:'فُصُولُ السَّنَةِ',t:"les saisons de l'année (idāfa)"},
+      {w:'فُصُولُ السَّنَةِ',t:"les saisons de l\'année (idāfa)"},
       {w:'أَرْبَعَةٌ',t:'quatre'},
-      {w:'الرَّبِيعُ وَالصَّيْفُ وَالْخَرِيفُ وَالشِّتَاءُ',t:"le printemps, l'été, l'automne et l'hiver"},
+      {w:'الرَّبِيعُ وَالصَّيْفُ وَالْخَرِيفُ وَالشِّتَاءُ',t:"le printemps, l\'été, l\'automne et l\'hiver"},
     ],[
       {w:'فِي الرَّبِيعِ',t:'au printemps'},
       {w:'يَكُونُ الطَّقْسُ مُعْتَدِلًا',t:'le temps est doux, tempéré'},
-      {w:'وَتَتَفَتَّحُ الأَزْهَارُ',t:"et les fleurs s'épanouissent (Form V)"},
+      {w:'وَتَتَفَتَّحُ الأَزْهَارُ',t:"et les fleurs s\'épanouissent (Form V)"},
     ],[
       {w:'فِي الصَّيْفِ',t:'en été'},
       {w:'تَشْتَدُّ الْحَرَارَةُ',t:'la chaleur est intense (Form VIII · ش‑د‑د)'},
@@ -575,7 +575,7 @@ const A1_T7 = {
       {w:'وَيَبْدَأُ الْمَطَرُ',t:'et la pluie commence'},
     ],[
       {w:'فِي الشِّتَاءِ',t:'en hiver'},
-      {w:'يَبْرُدُ الْجَوُّ',t:"l'air refroidit"},
+      {w:'يَبْرُدُ الْجَوُّ',t:"l\'air refroidit"},
       {w:'وَأَحْيَانًا',t:'et parfois'},
       {w:'تَتَسَاقَطُ الثُّلُوجُ',t:'il neige (litt. les neiges tombent)'},
     ],[
@@ -599,13 +599,13 @@ const A1_T7 = {
     {w:'بَرَدَ',p:'برد',tr:'barada',fr:'refroidir, devenir froid',fm:'Verbe Form I',root:'ب ر د'},
     {w:'أَحْيَانًا',p:'أحيانا',tr:'aḥyānan',fr:'parfois, de temps en temps',fm:'Adverbe (pl. de حِين)',root:'ح ي ن'},
     {w:'نَاس',p:'ناس',tr:'nās',fr:'gens, personnes',fm:'Nom collectif (pl. de إِنْسَان)',root:'أ ن س'},
-    {w:'تَفَتَّحَ',p:'تفتح',tr:'tafattaḥa',fr:"s'épanouir, s'ouvrir",fm:'Verbe Form V',root:'ف ت ح'},
+    {w:'تَفَتَّحَ',p:'تفتح',tr:'tafattaḥa',fr:"s\'épanouir, s\'ouvrir",fm:'Verbe Form V',root:'ف ت ح'},
   ],
   grammar:{
     concept:'الضَّمَائِرُ الشَّخْصِيَّةُ — Les pronoms personnels',
     excerptW:'هُوَ سَعِيدٌ · هِيَ جَمِيلَةٌ · نَحْنُ طُلَّابٌ · أَنْتُمْ أَصْدِقَاءُ',
     excerptP:'هو سعيد · هي جميلة · نحن طلاب · أنتم أصدقاء',
-    exp:"Les pronoms personnels arabes distinguent le genre au singulier ET au pluriel, et ont une forme spéciale pour le <strong>duel</strong>. Ils s'utilisent seuls dans la phrase nominale ou pour renforcer le sujet. Différence essentielle : <strong>أَنْتَ</strong> (tu, m.) ≠ <strong>أَنْتِ</strong> (tu, f.).",
+    exp:"Les pronoms personnels arabes distinguent le genre au singulier ET au pluriel, et ont une forme spéciale pour le <strong>duel</strong>. Ils s\'utilisent seuls dans la phrase nominale ou pour renforcer le sujet. Différence essentielle : <strong>أَنْتَ</strong> (tu, m.) ≠ <strong>أَنْتِ</strong> (tu, f.).",
     gtblHeaders:['Pronom','Transcription','Sens','Exemple'],
     table:[
       {v:'أَنَا',f:'anā',m:'أَنَا طَالِبٌ',fr:'je — je suis étudiant'},
@@ -649,7 +649,7 @@ const A1_T8 = {
     ],[
       {w:'فِي الْبَيْتِ',t:'à la maison'},
       {w:'يُحِبُّ الأَطْفَالُ',t:'les enfants aiment'},
-      {w:'تَرْبِيَةَ الْقِطَطِ وَالْكِلَابِ',t:"l'élevage des chats et des chiens (idāfa)"},
+      {w:'تَرْبِيَةَ الْقِطَطِ وَالْكِلَابِ',t:"l\'élevage des chats et des chiens (idāfa)"},
     ],[
       {w:'الْحِيتَانُ',t:'les baleines (pl. de حُوت)'},
       {w:'هِيَ أَكْبَرُ',t:'elles sont les plus grandes'},
@@ -677,20 +677,20 @@ const A1_T8 = {
     {w:'عَاشَ',p:'عاش',tr:"ʿāsha",fr:'vivre, exister, habiter',fm:'Verbe Form I — défectueux',root:'ع ي ش'},
   ],
   grammar:{
-    concept:'الإِضَافَةُ — L'annexion nominale (idāfa)',
+    concept:'الإِضَافَةُ — L\'annexion nominale (idāfa)',
     excerptW:'أَسَدُ الْغَابَةِ · مَلِكُ الْحَيَوَانَاتِ · جَمَلُ الصَّحْرَاءِ · حَيَوَانَاتُ الْبَحْرِ',
     excerptP:'أسد الغابة · ملك الحيوانات · جمل الصحراء · حيوانات البحر',
-    exp:"L'idāfa exprime la possession ou l'appartenance (équivalent du "de" français). Deux règles absolues : <strong>① le premier terme (مُضَاف)</strong> perd son article ET son tanwīn. <strong>② le second terme (مُضَاف إِلَيْهِ)</strong> se met au <strong>cas génitif (ـِ / ـٍ)</strong>.",
+    exp:"L\'idāfa exprime la possession ou l\'appartenance (équivalent du \"de\" français). Deux règles absolues : <strong>① le premier terme (مُضَاف)</strong> perd son article ET son tanwīn. <strong>② le second terme (مُضَاف إِلَيْهِ)</strong> se met au <strong>cas génitif (ـِ / ـٍ)</strong>.",
     gtblHeaders:['مُضَاف','مُضَاف إِلَيْهِ','Idāfa complète','Traduction'],
     table:[
       {v:'أَسَدُ',f:'الْغَابَةِ',m:'أَسَدُ الْغَابَةِ',fr:'le lion de la forêt'},
       {v:'مَلِكُ',f:'الْحَيَوَانَاتِ',m:'مَلِكُ الْحَيَوَانَاتِ',fr:'le roi des animaux'},
       {v:'جَمَلُ',f:'الصَّحْرَاءِ',m:'جَمَلُ الصَّحْرَاءِ',fr:'le chameau du désert'},
       {v:'غُرْفَةُ',f:'النَّوْمِ',m:'غُرْفَةُ النَّوْمِ',fr:'la chambre à coucher'},
-      {v:'كِتَابُ',f:'الطَّالِبِ',m:'كِتَابُ الطَّالِبِ',fr:"le livre de l'étudiant"},
-      {v:'بَيْتُ',f:'أَحْمَدَ',m:'بَيْتُ أَحْمَدَ',fr:"la maison d'Ahmad"},
+      {v:'كِتَابُ',f:'الطَّالِبِ',m:'كِتَابُ الطَّالِبِ',fr:"le livre de l\'étudiant"},
+      {v:'بَيْتُ',f:'أَحْمَدَ',m:'بَيْتُ أَحْمَدَ',fr:"la maison d\'Ahmad"},
     ],
-    note:"L'idāfa peut s'enchaîner sur trois termes : <strong>كِتَابُ طَالِبِ الْمَدْرَسَةِ</strong> = le livre de l'étudiant de l'école. Dans ce cas seul le dernier terme garde son article.",
+    note:"L\'idāfa peut s\'enchaîner sur trois termes : <strong>كِتَابُ طَالِبِ الْمَدْرَسَةِ</strong> = le livre de l\'étudiant de l\'école. Dans ce cas seul le dernier terme garde son article.",
   },
 };
 
@@ -725,7 +725,7 @@ const A1_T9 = {
       {w:'كِتَابًا',t:'un livre'},
       {w:'بِعَشَرَةِ دَرَاهِمَ',t:'pour dix dirhams'},
     ],[
-      {w:'كَمْ سَاعَةً فِي الْيَوْمِ؟',t:"combien d'heures dans le jour ?"},
+      {w:'كَمْ سَاعَةً فِي الْيَوْمِ؟',t:"combien d\'heures dans le jour ?"},
       {w:'أَرْبَعٌ وَعِشْرُونَ سَاعَةً',t:'vingt-quatre heures'},
     ],
   ],
@@ -791,12 +791,12 @@ const A1_T10 = {
       {w:'عَلَى شَخْصٍ جَدِيدٍ',t:"avec une nouvelle personne"},
     ],[
       {w:'مَرْحَبًا!',t:'bonjour ! bienvenue !'},
-      {w:'اسْمِي أَحْمَدُ',t:'je m'appelle Ahmad (litt. mon nom est)'},
+      {w:'اسْمِي أَحْمَدُ',t:'je m\'appelle Ahmad (litt. mon nom est)'},
       {w:'أَنَا مِنَ الْمَغْرِبِ',t:'je suis du Maroc'},
     ],[
       {w:'أَهْلًا وَسَهْلًا!',t:'bienvenue ! (litt. famille et facilité)'},
       {w:'أَنَا خَالِدٌ',t:'je suis Khalid'},
-      {w:'مِنَ السُّعُودِيَّةِ',t:"d'Arabie Saoudite"},
+      {w:'مِنَ السُّعُودِيَّةِ',t:"d\'Arabie Saoudite"},
     ],
   ],
   vocabulary:[
@@ -805,31 +805,31 @@ const A1_T10 = {
     {w:'قَالَ',p:'قال',tr:'qāla',fr:'dire, déclarer',fm:'Verbe Form I — défectueux (و‑ق‑ل)',root:'ق و ل'},
     {w:'رَدَّ',p:'رد',tr:'radda',fr:'répondre, rendre',fm:'Verbe Form I — géminé',root:'ر د د'},
     {w:'السَّلَام',p:'السلام',tr:'as-salām',fr:'la paix, le salut islamique',fm:'Nom — schème فَعَال',root:'س ل م'},
-    {w:'شُكْرًا',p:'شكرا',tr:'shukran',fr:'merci (litt. une action de grâce)',fm:'Masdar à l'accusatif (formule figée)',root:'ش ك ر'},
+    {w:'شُكْرًا',p:'شكرا',tr:'shukran',fr:'merci (litt. une action de grâce)',fm:'Masdar à l\'accusatif (formule figée)',root:'ش ك ر'},
     {w:'بِخَيْرٍ',p:'بخير',tr:'bi-khayr',fr:'bien, en bonne santé (litt. en bien)',fm:'Prép. + nom — خَيْر (bien, bonheur)',root:'خ ي ر'},
-    {w:'مَرْحَبًا',p:'مرحبا',tr:'marḥaban',fr:'bonjour, bienvenue',fm:'Masdar à l'accusatif (formule figée)',root:'ر ح ب'},
-    {w:'أَهْلًا وَسَهْلًا',p:'أهلا وسهلا',tr:'ahlan wa-sahlan',fr:'bienvenue (formule d'accueil)',fm:'Expression figée (famille + facilité)',root:'أ ه ل'},
+    {w:'مَرْحَبًا',p:'مرحبا',tr:'marḥaban',fr:'bonjour, bienvenue',fm:'Masdar à l\'accusatif (formule figée)',root:'ر ح ب'},
+    {w:'أَهْلًا وَسَهْلًا',p:'أهلا وسهلا',tr:'ahlan wa-sahlan',fr:'bienvenue (formule d\'accueil)',fm:'Expression figée (famille + facilité)',root:'أ ه ل'},
     {w:'تَعَرَّفَ عَلَى',p:'تعرف على',tr:"taʿarrafa ʿalā",fr:'faire connaissance avec',fm:'Verbe Form V',root:'ع ر ف'},
     {w:'شَخْص',p:'شخص',tr:'shakhṣ',fr:'personne, individu (pl. أَشْخَاص)',fm:'Nom — schème فَعْل',root:'ش خ ص'},
     {w:'جَدِيد',p:'جديد',tr:'jadīd',fr:'nouveau, récent, neuf (pl. جُدُد)',fm:'Adjectif — schème فَعِيل',root:'ج د د'},
     {w:'مُبْتَسِم',p:'مبتسم',tr:'mubtasim',fr:'souriant',fm:'Participe actif Form VIII',root:'ب س م'},
     {w:'كَانَ',p:'كان',tr:'kāna',fr:'était, il y avait (auxiliaire passé)',fm:'Verbe Form I — défectueux (و)',root:'ك و ن'},
-    {w:'لَيْسَ',p:'ليس',tr:'laysa',fr:"n'est pas (négation nominale)",fm:'Verbe figé — sœur de كَانَ',root:'ل ي س'},
+    {w:'لَيْسَ',p:'ليس',tr:'laysa',fr:"n\'est pas (négation nominale)",fm:'Verbe figé — sœur de كَانَ',root:'ل ي س'},
     {w:'صَارَ',p:'صار',tr:'ṣāra',fr:'devenir, se transformer en',fm:'Verbe Form I — défectueux (sœur de كَانَ)',root:'ص و ر'},
   ],
   grammar:{
     concept:'كَانَ وَأَخَوَاتُهَا — Les sœurs de kāna',
     excerptW:'كَانَ أَحْمَدُ مُبْتَسِمًا · لَيْسَ الأَمْرُ صَعْبًا · صَارَ الطِّفْلُ طَالِبًا',
     excerptP:'كان أحمد مبتسمًا · ليس الأمر صعبًا · صار الطفل طالبًا',
-    exp:"كَانَ et ses «sœurs» (أَخَوَات) modifient la phrase nominale. Elles mettent le sujet <strong>(اسمها)</strong> au nominatif et le prédicat <strong>(خبرها)</strong> à l'<strong>accusatif (ـًا / ـَ)</strong>. C'est la différence essentielle avec la phrase nominale simple : هُوَ سَعِيدٌ → كَانَ سَعِيدًا.",
+    exp:"كَانَ et ses «sœurs» (أَخَوَات) modifient la phrase nominale. Elles mettent le sujet <strong>(اسمها)</strong> au nominatif et le prédicat <strong>(خبرها)</strong> à l'<strong>accusatif (ـًا / ـَ)</strong>. C\'est la différence essentielle avec la phrase nominale simple : هُوَ سَعِيدٌ → كَانَ سَعِيدًا.",
     gtblHeaders:['Verbe (فِعْل)','Transcription','Exemple','Traduction'],
     table:[
       {v:'كَانَ',f:'kāna',m:'كَانَ الطَّقْسُ بَارِدًا',fr:'Le temps était froid (passé)'},
       {v:'أَصْبَحَ',f:'aṣbaḥa',m:'أَصْبَحَ طَالِبًا',fr:'Il devint / est devenu étudiant'},
       {v:'صَارَ',f:'ṣāra',m:'صَارَ مَشْهُورًا',fr:'Il devint célèbre'},
-      {v:'لَيْسَ',f:'laysa',m:'لَيْسَ الدَّرْسُ صَعْبًا',fr:"La leçon n'est pas difficile"},
+      {v:'لَيْسَ',f:'laysa',m:'لَيْسَ الدَّرْسُ صَعْبًا',fr:"La leçon n\'est pas difficile"},
       {v:'مَازَالَ',f:'mā zāla',m:'مَازَالَ سَعِيدًا',fr:'Il est encore heureux'},
-      {v:'أَمْسَى',f:'amsā',m:'أَمْسَى الجَوُّ بَارِدًا',fr:"L'air devint froid le soir"},
+      {v:'أَمْسَى',f:'amsā',m:'أَمْسَى الجَوُّ بَارِدًا',fr:"L\'air devint froid le soir"},
     ],
     note:"Mémorisez le schéma : <strong>كَانَ + اسم (nominatif) + خبر (accusatif)</strong>. Exemple : كَانَ <strong>أَحْمَدُ</strong> (sujet, marf') <strong>مُبْتَسِمًا</strong> (prédicat, manṣūb).",
   },
@@ -896,7 +896,7 @@ const A1_T11 = {
     concept:'الظَّرْفُ الزَّمَانِيُّ وَالْمَكَانِيُّ — Adverbes de temps et de lieu',
     excerptW:'هُنَاكَ يَجِدُ خُضَارًا · ثُمَّ يَدْفَعُ الثَّمَنَ · كُلَّ يَوْمِ جُمُعَةٍ',
     excerptP:'هناك يجد خضارًا · ثم يدفع الثمن · كل يوم جمعة',
-    exp:"Les adverbes de temps <strong>(ظرف زمان)</strong> et de lieu <strong>(ظرف مكان)</strong> se mettent à l'<strong>accusatif (ـًا)</strong> quand ils sont indéfinis. Ils se placent généralement en début de phrase pour mettre en valeur le contexte. Beaucoup sont des noms ordinaires utilisés à l'accusatif sans préposition.",
+    exp:"Les adverbes de temps <strong>(ظرف زمان)</strong> et de lieu <strong>(ظرف مكان)</strong> se mettent à l'<strong>accusatif (ـًا)</strong> quand ils sont indéfinis. Ils se placent généralement en début de phrase pour mettre en valeur le contexte. Beaucoup sont des noms ordinaires utilisés à l\'accusatif sans préposition.",
     gtblHeaders:['Adverbe','Type','Exemple','Traduction'],
     table:[
       {v:'هُنَا',f:'lieu',m:'هُنَا يَعِيشُ أَحْمَدُ',fr:'ici — Ahmad habite ici'},
@@ -908,7 +908,7 @@ const A1_T11 = {
       {v:'دَائِمًا',f:'temps',m:'هُوَ دَائِمًا مُبْتَسِمٌ',fr:'toujours — il est toujours souriant'},
       {v:'أَحْيَانًا',f:'temps',m:'أَحْيَانًا تَتَسَاقَطُ الثُّلُوجُ',fr:'parfois — parfois il neige'},
     ],
-    note:"غَدًا et صَبَاحًا sont des noms à l'accusatif utilisés comme adverbes. أَمْسِ est invariable (toujours مكسور). هُنَا / هُنَاكَ ne prennent jamais de tanwīn.",
+    note:"غَدًا et صَبَاحًا sont des noms à l\'accusatif utilisés comme adverbes. أَمْسِ est invariable (toujours مكسور). هُنَا / هُنَاكَ ne prennent jamais de tanwīn.",
   },
 };
 
@@ -919,7 +919,7 @@ const A1_T11 = {
 const A1_T12 = {
   id:'a1-12', level:'A1',
   titleW:'فِي الْمَدْرَسَةِ', titleP:'في المدرسة',
-  titleFr:"À l'école",
+  titleFr:"À l\'école",
   sentences:[
     [
       {w:'فِي الأَمْسِ',t:'hier (adverbe de temps)'},
@@ -972,25 +972,25 @@ const A1_T12 = {
     concept:'الْفِعْلُ الْمَاضِي — Conjugaison du passé',
     excerptW:'دَرَسَ · شَرَحَ · كَتَبُوا · فَهِمَ · أَجَابَ · مَدَحَ · رَجَعُوا',
     excerptP:'درس · شرح · كتبوا · فهم · أجاب · مدح · رجعوا',
-    exp:"Le passé arabe se forme en ajoutant des <strong>suffixes</strong> à la racine conjuguée. Le modèle de base est <strong>فَعَلَ</strong> (3sg m) — c'est la forme du dictionnaire. Les suffixes indiquent la personne, le nombre et le genre. Pas d'auxiliaire — le passé est un seul mot.",
+    exp:"Le passé arabe se forme en ajoutant des <strong>suffixes</strong> à la racine conjuguée. Le modèle de base est <strong>فَعَلَ</strong> (3sg m) — c\'est la forme du dictionnaire. Les suffixes indiquent la personne, le nombre et le genre. Pas d\'auxiliaire — le passé est un seul mot.",
     gtblHeaders:['Forme','Personne','Exemple (دَرَسَ)','Traduction'],
     table:[
       {v:'فَعَلَ',f:'3sg m.',m:'دَرَسَ',fr:'il étudia'},
       {v:'فَعَلَتْ',f:'3sg f.',m:'دَرَسَتْ',fr:'elle étudia'},
       {v:'فَعَلْتَ',f:'2sg m.',m:'دَرَسْتَ',fr:'tu étudias (m.)'},
       {v:'فَعَلْتِ',f:'2sg f.',m:'دَرَسْتِ',fr:'tu étudias (f.)'},
-      {v:'فَعَلْتُ',f:'1sg',m:'دَرَسْتُ',fr:"j'étudiai"},
+      {v:'فَعَلْتُ',f:'1sg',m:'دَرَسْتُ',fr:"j\'étudiai"},
       {v:'فَعَلُوا',f:'3pl m.',m:'دَرَسُوا',fr:'ils étudièrent'},
       {v:'فَعَلْنَ',f:'3pl f.',m:'دَرَسْنَ',fr:'elles étudièrent'},
       {v:'فَعَلْنَا',f:'1pl',m:'دَرَسْنَا',fr:'nous étudiâmes'},
     ],
-    note:"Règle pratique : la <strong>3ème personne masculin singulier</strong> (دَرَسَ) est la forme de base — c'est ainsi que les verbes apparaissent dans le dictionnaire. Tous les autres suffixes s'ajoutent à la racine sans voyelle finale : دَرَسَ → دَرَس + تُ/تَ/تِ/نَا.",
+    note:"Règle pratique : la <strong>3ème personne masculin singulier</strong> (دَرَسَ) est la forme de base — c\'est ainsi que les verbes apparaissent dans le dictionnaire. Tous les autres suffixes s\'ajoutent à la racine sans voyelle finale : دَرَسَ → دَرَس + تُ/تَ/تِ/نَا.",
   },
 };
 
 /* ═══════════════════════════════════════════════
    A1 · T13 — وَسَائِلُ النَّقْلِ
-   Grammaire : النَّعْت (accord de l'adjectif épithète)
+   Grammaire : النَّعْت (accord de l\'adjectif épithète)
 ═══════════════════════════════════════════════ */
 const A1_T13 = {
   id:'a1-13', level:'A1',
@@ -1018,7 +1018,7 @@ const A1_T13 = {
       {w:'يَسْتَخْدِمُ النَّاسُ',t:'les gens utilisent (Form X · خ‑د‑م)'},
       {w:'الدَّرَّاجَةَ',t:'le vélo'},
     ],[
-      {w:'وَتَبْقَى الطَّائِرَةُ',t:"et l'avion demeure (Form I · ب‑ق‑ي)"},
+      {w:'وَتَبْقَى الطَّائِرَةُ',t:"et l\'avion demeure (Form I · ب‑ق‑ي)"},
       {w:'أَسْرَعَ وَسَائِلِ النَّقْلِ',t:'le plus rapide des moyens de transport'},
     ],
   ],
@@ -1044,10 +1044,10 @@ const A1_T13 = {
     {w:'اسْتَخْدَمَ',p:'استخدم',tr:'istakhdama',fr:'utiliser, se servir de',fm:'Verbe Form X',root:'خ د م'},
   ],
   grammar:{
-    concept:'النَّعْتُ — L'accord de l'adjectif épithète',
+    concept:'النَّعْتُ — L\'accord de l\'adjectif épithète',
     excerptW:'الْمَدِينَةُ الْحَدِيثَةُ · الْقِطَارُ السَّرِيعُ · الْمُدُنُ الْكَبِيرَةُ · الأَحْيَاءُ الصَّغِيرَةُ',
     excerptP:'المدينة الحديثة · القطار السريع · المدن الكبيرة · الأحياء الصغيرة',
-    exp:"L'adjectif arabe (نَعْت) s'accorde avec son nom en <strong>quatre points</strong> : genre (m/f), nombre (sg/pl), état (défini/indéfini) et cas (nominatif/accusatif/génitif). Règle spéciale pour les <strong>non-humains pluriels</strong> : l'adjectif prend toujours la forme <strong>féminine singulière</strong>.",
+    exp:"L\'adjectif arabe (نَعْت) s\'accorde avec son nom en <strong>quatre points</strong> : genre (m/f), nombre (sg/pl), état (défini/indéfini) et cas (nominatif/accusatif/génitif). Règle spéciale pour les <strong>non-humains pluriels</strong> : l\'adjectif prend toujours la forme <strong>féminine singulière</strong>.",
     gtblHeaders:['Nom','Accord requis','Syntagme complet','Traduction'],
     table:[
       {v:'قِطَارٌ',f:'masc. sg. indéf.',m:'قِطَارٌ سَرِيعٌ',fr:'un train rapide'},
@@ -1074,11 +1074,11 @@ const A1_T14 = {
       {w:'يُحِبُّ أَحْمَدُ',t:'Ahmad aime'},
       {w:'الأَلْوَانَ الزَّاهِيَةَ',t:'les couleurs vives (acc. pl.)'},
     ],[
-      {w:'أَلْوَانُ قَوْسِ قُزَحَ',t:"les couleurs de l'arc-en-ciel (idāfa double)"},
+      {w:'أَلْوَانُ قَوْسِ قُزَحَ',t:"les couleurs de l\'arc-en-ciel (idāfa double)"},
       {w:'جَمِيلَةٌ',t:'sont belles'},
       {w:'الأَحْمَرُ وَالأَصْفَرُ',t:'le rouge et le jaune (conj. وَ)'},
       {w:'وَالأَزْرَقُ وَالأَخْضَرُ',t:'et le bleu et le vert'},
-      {w:'وَالْبُرْتُقَالِيُّ',t:'et l'orange'},
+      {w:'وَالْبُرْتُقَالِيُّ',t:'et l\'orange'},
     ],[
       {w:'غُرْفَتُهُ مَطْلِيَّةٌ',t:'sa chambre est peinte'},
       {w:'بِاللَّوْنِ الأَزْرَقِ',t:'en bleu (prép. + idāfa)'},
@@ -1122,7 +1122,7 @@ const A1_T14 = {
     concept:'حُرُوفُ الْعَطْفِ — Les conjonctions de coordination',
     excerptW:'الأَحْمَرُ وَالأَصْفَرُ · الأَزْرَقُ لَا الأَحْمَرُ · لَكِنَّ الدَّائِرَةَ أَكْبَرُ · الأَزْرَقُ أَوِ الأَخْضَرُ',
     excerptP:'الأحمر والأصفر · الأزرق لا الأحمر · لكن الدائرة أكبر · الأزرق أو الأخضر',
-    exp:"Les conjonctions de coordination (حُرُوف العطف) relient deux mots ou deux phrases de même niveau syntaxique. Le second terme s'appelle <strong>الْمَعْطُوف</strong> et prend le même cas que le premier. Attention : <strong>لَكِنَّ</strong> (avec تشديد) est une sœur de إِنَّ et met le nom suivant à l'accusatif.",
+    exp:"Les conjonctions de coordination (حُرُوف العطف) relient deux mots ou deux phrases de même niveau syntaxique. Le second terme s\'appelle <strong>الْمَعْطُوف</strong> et prend le même cas que le premier. Attention : <strong>لَكِنَّ</strong> (avec تشديد) est une sœur de إِنَّ et met le nom suivant à l\'accusatif.",
     gtblHeaders:['Conjonction','Transcription','Exemple','Rôle'],
     table:[
       {v:'وَ',f:'wa',m:'الأَحْمَرُ وَالأَزْرَقُ',fr:'et — simple addition'},
@@ -1181,22 +1181,22 @@ const A1_T15 = {
     {w:'وَاسِع',p:'واسع',tr:'wāsiʿ',fr:'large, vaste, spacieux',fm:'Adjectif — participe actif Form I',root:'و س ع'},
     {w:'مُشَاة',p:'مشاة',tr:'mushāh',fr:'piétons (pl. de مَاشٍ)',fm:'Pl. de participe actif Form I',root:'م ش ي'},
     {w:'رَصِيف',p:'رصيف',tr:'raṣīf',fr:'trottoir, quai (pl. أَرْصِفَة)',fm:'Nom — schème فَعِيل',root:'ر ص ف'},
-    {w:'مَرَّ',p:'مر',tr:'marra',fr:'passer, traverser, s'écouler',fm:'Verbe Form I — géminé',root:'م ر ر'},
+    {w:'مَرَّ',p:'مر',tr:'marra',fr:'passer, traverser, s\'écouler',fm:'Verbe Form I — géminé',root:'م ر ر'},
     {w:'طَرِيق',p:'طريق',tr:'ṭarīq',fr:'route, chemin (pl. طُرُق)',fm:'Nom — schème فَعِيل',root:'ط ر ق'},
     {w:'مَسْجِد',p:'مسجد',tr:'masjid',fr:'mosquée (pl. مَسَاجِد)',fm:'Nom de lieu — schème مَفْعِل',root:'س ج د'},
     {w:'مَرْكَز',p:'مركز',tr:'markaz',fr:'centre, siège (pl. مَرَاكِز)',fm:'Nom — schème مَفْعَل',root:'ر ك ز'},
     {w:'جَانِب',p:'جانب',tr:'jānib',fr:'côté, flanc (pl. جَوَانِب)',fm:'Nom — schème فَاعِل',root:'ج ن ب'},
     {w:'سَارَ',p:'سار',tr:'sāra',fr:'marcher, avancer, aller',fm:'Verbe Form I — défectueux',root:'س ي ر'},
     {w:'قَدِيم',p:'قديم',tr:'qadīm',fr:'vieux, ancien, antique',fm:'Adjectif — schème فَعِيل',root:'ق د م'},
-    {w:'إِنَّ',p:'إن',tr:'inna',fr:'certes, assurément (mise en valeur)',fm:"Particule d'emphase — sœur de كَانَ",root:'أ ن ن'},
+    {w:'إِنَّ',p:'إن',tr:'inna',fr:'certes, assurément (mise en valeur)',fm:"Particule d\'emphase — sœur de كَانَ",root:'أ ن ن'},
     {w:'لَعَلَّ',p:'لعل',tr:"laʿalla",fr:'peut-être que, espérons que',fm:"Particule souhait/doute — sœur de إِنَّ",root:'ل ع ل'},
     {w:'أَجْمَل',p:'أجمل',tr:'ajmal',fr:'plus beau, le plus beau (élatif)',fm:'Adjectif élatif — schème أَفْعَل',root:'ج م ل'},
   ],
   grammar:{
-    concept:'إِنَّ وَأَخَوَاتُهَا — Les particules d'emphase',
+    concept:'إِنَّ وَأَخَوَاتُهَا — Les particules d\'emphase',
     excerptW:'إِنَّ شَوَارِعَهَا وَاسِعَةٌ · وَلَكِنَّ السُّوقَ بِجَانِبِهِ · لَعَلَّ الْمَدِينَةَ الْقَدِيمَةَ أَجْمَلُ',
     excerptP:'إن شوارعها واسعة · ولكن السوق بجانبه · لعل المدينة القديمة أجمل',
-    exp:"Les sœurs de إِنَّ modifient la phrase nominale en sens inverse de <strong>كَانَ</strong> : elles mettent le <strong>sujet (اسمها) à l'accusatif</strong> et laissent le <strong>prédicat (خبرها) au nominatif</strong>. إِنَّ renforce l'assertion. لَكِنَّ exprime l'opposition. لَعَلَّ exprime le souhait ou le doute.",
+    exp:"Les sœurs de إِنَّ modifient la phrase nominale en sens inverse de <strong>كَانَ</strong> : elles mettent le <strong>sujet (اسمها) à l\'accusatif</strong> et laissent le <strong>prédicat (خبرها) au nominatif</strong>. إِنَّ renforce l\'assertion. لَكِنَّ exprime l\'opposition. لَعَلَّ exprime le souhait ou le doute.",
     gtblHeaders:['Particule','Transcription','Exemple','Sens / Fonction'],
     table:[
       {v:'إِنَّ',f:'inna',m:'إِنَّ أَحْمَدَ طَالِبٌ',fr:'certes Ahmad est étudiant (emphase)'},
@@ -1206,7 +1206,7 @@ const A1_T15 = {
       {v:'لَيْتَ',f:'layta',m:'لَيْتَ الطَّقْسَ دَافِئٌ',fr:'plût au ciel que le temps soit doux'},
       {v:'لَعَلَّ',f:"laʿalla",m:'لَعَلَّ الْجَوَّ جَمِيلٌ غَدًا',fr:'peut-être que le temps sera beau demain'},
     ],
-    note:"Comparez les deux structures : <strong>كَانَ</strong> → اسم مرفوع + خبر منصوب (était grand → كَانَ كَبِيرًا). <strong>إِنَّ</strong> → اسم منصوب + خبر مرفوع (certes il est grand → إِنَّهُ كَبِيرٌ). C'est l'inverse !",
+    note:"Comparez les deux structures : <strong>كَانَ</strong> → اسم مرفوع + خبر منصوب (était grand → كَانَ كَبِيرًا). <strong>إِنَّ</strong> → اسم منصوب + خبر مرفوع (certes il est grand → إِنَّهُ كَبِيرٌ). C\'est l\'inverse !",
   },
 };
 
@@ -1226,12 +1226,12 @@ const A1_T16 = {
     ],[
       {w:'أَكَلَ مَعَ أُسْرَتِهِ',t:'il mangea avec sa famille'},
       {w:'فَطُورًا لَذِيذًا',t:'un délicieux petit-déjeuner'},
-      {w:'ثُمَّ ذَهَبَ إِلَى الْمَدْرَسَةِ',t:"puis il alla à l'école"},
+      {w:'ثُمَّ ذَهَبَ إِلَى الْمَدْرَسَةِ',t:"puis il alla à l\'école"},
       {w:'مَاشِيًا',t:'en marchant (ḥāl — état du sujet)'},
     ],[
-      {w:'فِي الْمَدْرَسَةِ',t:"à l'école"},
+      {w:'فِي الْمَدْرَسَةِ',t:"à l\'école"},
       {w:'حَيَّا أَصْدِقَاءَهُ',t:'il salua ses amis (Form II · ح‑ي‑ي)'},
-      {w:'وَجَلَسَ فِي صَفِّهِ',t:'et s'assit dans sa classe'},
+      {w:'وَجَلَسَ فِي صَفِّهِ',t:'et s\'assit dans sa classe'},
     ],[
       {w:'شَرَحَ الْمُعَلِّمُ',t:'le professeur expliqua'},
       {w:'دَرْسًا جَدِيدًا',t:'une nouvelle leçon'},
@@ -1256,7 +1256,7 @@ const A1_T16 = {
     {w:'لَذِيذ',p:'لذيذ',tr:'ladhīdh',fr:'délicieux, savoureux',fm:'Adjectif — schème فَعِيل',root:'ل ذ ذ'},
     {w:'مَاشٍ',p:'ماش',tr:'māshin',fr:'en marchant, marchant (participe)',fm:'Participe actif Form I — défectueux',root:'م ش ي'},
     {w:'حَيَّا',p:'حيا',tr:'ḥayyā',fr:'saluer, accueillir, souhaiter longue vie',fm:'Verbe Form II — défectueux',root:'ح ي ي'},
-    {w:'جَلَسَ',p:'جلس',tr:'jalasa',fr:'s'asseoir, siéger',fm:'Verbe Form I',root:'ج ل س'},
+    {w:'جَلَسَ',p:'جلس',tr:'jalasa',fr:'s\'asseoir, siéger',fm:'Verbe Form I',root:'ج ل س'},
     {w:'لَعِبَ',p:'لعب',tr:"laʿiba",fr:'jouer',fm:'Verbe Form I',root:'ل ع ب'},
     {w:'مَلْعَب',p:'ملعب',tr:"malʿab",fr:'terrain de jeux, stade (pl. مَلَاعِب)',fm:'Nom de lieu — schème مَفْعَل',root:'ل ع ب'},
     {w:'مُتْعَب',p:'متعب',tr:"mutʿab",fr:'fatigué, épuisé',fm:'Participe passif Form IV',root:'ت ع ب'},
@@ -1266,7 +1266,7 @@ const A1_T16 = {
     concept:'مُرَاجَعَةٌ شَامِلَةٌ A1 — Révision générale',
     excerptW:'يَوْمٌ دِرَاسِيٌّ يَجْمَعُ كُلَّ مَا تَعَلَّمْنَاهُ',
     excerptP:'يوم دراسي يجمع كل ما تعلمناه',
-    exp:"Ce texte récapitulatif mobilise les <strong>huit structures fondamentales du niveau A1</strong>. À ce stade, vous devez reconnaître spontanément chacun de ces schémas à la lecture ou à l'écoute. Ce sont les fondations sur lesquelles repose tout l'arabe.",
+    exp:"Ce texte récapitulatif mobilise les <strong>huit structures fondamentales du niveau A1</strong>. À ce stade, vous devez reconnaître spontanément chacun de ces schémas à la lecture ou à l\'écoute. Ce sont les fondations sur lesquelles repose tout l\'arabe.",
     gtblHeaders:['Concept','Nom français','Exemple du texte A1','Règle essentielle'],
     table:[
       {v:'الجملة الاسمية',f:'Phrase nominale',m:'هُوَ فَرِحٌ وَمُتْعَبٌ',fr:"Pas de verbe 'être' au présent"},
@@ -1275,10 +1275,10 @@ const A1_T16 = {
       {v:'النَّعْت',f:'Accord adjectif',m:'دَرْسٌ جَدِيدٌ / الثِّيَابُ النَّظِيفَةُ',fr:'Accord en genre, nombre, cas, état'},
       {v:'الفعل الماضي',f:'Passé',m:'اسْتَيْقَظَ · لَعِبَ · رَجَعَ',fr:'Suffixes personnels sur la racine'},
       {v:'حروف الجر',f:'Prépositions',m:'مَعَ أَصْدِقَائِهِ · فِي الْمَلْعَبِ',fr:'Régissent le génitif (ـِ)'},
-      {v:'كَانَ وَأَخَوَاتُهَا',f:"Sœurs de kāna",m:'كَانَ فَرِحًا وَمُتْعَبًا',fr:'اسم marf.' + خبر manṣūb'},
-      {v:'إِنَّ وَأَخَوَاتُهَا',f:"Sœurs de inna",m:'إِنَّ يَوْمَهُ كَانَ جَمِيلًا',fr:'اسم manṣūb + خبر marf.' (inverse de كَانَ)'},
+      {v:'كَانَ وَأَخَوَاتُهَا',f:"Sœurs de kāna",m:'كَانَ فَرِحًا وَمُتْعَبًا',fr:'اسم مرفوع + خبر منصوب'},
+      {v:'إِنَّ وَأَخَوَاتُهَا',f:"Sœurs de inna",m:'إِنَّ يَوْمَهُ كَانَ جَمِيلًا',fr:'اسم منصوب + خبر مرفوع — inverse de كَانَ'},
     ],
-    note:"🎉 <strong>Félicitations</strong> — vous avez terminé le niveau A1 (16 textes · ~600 mots). Vous maîtrisez les fondations de l'arabe. Le niveau A2 introduira la conjugaison complète au présent, les formes verbales II-IV, et des textes plus riches.",
+    note:"🎉 <strong>Félicitations</strong> — vous avez terminé le niveau A1 (16 textes · ~600 mots). Vous maîtrisez les fondations de l\'arabe. Le niveau A2 introduira la conjugaison complète au présent, les formes verbales II-IV, et des textes plus riches.",
   },
 };
 
