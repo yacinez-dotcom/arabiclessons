@@ -621,3 +621,103 @@ aside {
   line-height: 1.5;
 }
 .rev-note strong { color: var(--gold); }
+
+/* ══════════════════════════════════════════════
+   VUE VOCABULAIRE
+══════════════════════════════════════════════ */
+
+/* Barre de recherche */
+.voc-search-wrap {
+  margin-top: .8rem;
+}
+.voc-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: .55rem .85rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(212,175,55,.35);
+  border-radius: 6px;
+  color: var(--parchment);
+  font-family: 'EB Garamond', serif;
+  font-size: .95rem;
+  outline: none;
+  transition: border-color .2s;
+}
+.voc-search:focus  { border-color: var(--gold); background: rgba(255,255,255,.09); }
+.voc-search::placeholder { color: rgba(212,175,55,.4); font-size: .88rem; }
+
+/* Compteurs dans les boutons filtre */
+.flt-cnt { font-size: .72em; opacity: .75; }
+
+/* Wrapper table avec scroll horizontal sur petits écrans */
+.voc-table-wrap {
+  overflow-x: auto;
+  margin-top: .5rem;
+}
+
+/* Table vocabulaire */
+.voc-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .84rem;
+}
+.voc-tbl thead th {
+  position: sticky;
+  top: 0;
+  background: var(--navy);
+  padding: .5rem .65rem;
+  text-align: left;
+  color: var(--gold);
+  font-family: 'EB Garamond', serif;
+  font-size: .78rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(212,175,55,.3);
+  white-space: nowrap;
+  z-index: 1;
+}
+.voc-tbl tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  transition: background .12s;
+}
+.voc-tbl tbody tr:hover { background: rgba(212,175,55,.06); }
+.voc-tbl tbody tr:nth-child(even) { background: rgba(255,255,255,.025); }
+.voc-tbl tbody tr:nth-child(even):hover { background: rgba(212,175,55,.06); }
+.voc-tbl td { padding: .32rem .65rem; vertical-align: middle; }
+
+/* Colonnes */
+.voc-ar {
+  font-family: 'Amiri', serif;
+  font-size: 1.05rem;
+  direction: rtl;
+  color: var(--parchment);
+  white-space: nowrap;
+}
+.voc-tr {
+  font-size: .78rem;
+  color: var(--parch-dim);
+  font-style: italic;
+  white-space: nowrap;
+}
+.voc-fr {
+  color: var(--parchment);
+  max-width: 260px;
+}
+.voc-fm {
+  font-size: .73rem;
+  color: var(--parch-dim);
+  max-width: 200px;
+}
+.voc-root {
+  font-family: 'Amiri', serif;
+  font-size: .88rem;
+  direction: rtl;
+  color: rgba(212,175,55,.7);
+  white-space: nowrap;
+  letter-spacing: .08em;
+}
+.voc-empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--parch-dim);
+  font-style: italic;
+}
