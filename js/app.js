@@ -18,6 +18,16 @@ var TEXTS = {
   C2: (typeof C2_TEXTS !== 'undefined') ? C2_TEXTS : [],
 };
 
+/* ── Vocabulaire thématique par niveau ──────── */
+var VOCAB_THEMATIC = {
+  A1: (typeof A1_VOCAB_THEMATIC !== 'undefined') ? A1_VOCAB_THEMATIC : [],
+  A2: (typeof A2_VOCAB_THEMATIC !== 'undefined') ? A2_VOCAB_THEMATIC : [],
+  B1: (typeof B1_VOCAB_THEMATIC !== 'undefined') ? B1_VOCAB_THEMATIC : [],
+  B2: (typeof B2_VOCAB_THEMATIC !== 'undefined') ? B2_VOCAB_THEMATIC : [],
+  C1: (typeof C1_VOCAB_THEMATIC !== 'undefined') ? C1_VOCAB_THEMATIC : [],
+  C2: (typeof C2_VOCAB_THEMATIC !== 'undefined') ? C2_VOCAB_THEMATIC : [],
+};
+
 /* ── Couleurs de niveaux (partagées) ────────── */
 var LV_COLORS = {
   A1:'#2e7d32', A2:'#1565c0', B1:'#6a1fb0',
@@ -240,8 +250,17 @@ function renderLessons() {
 function getAllVocab() {
   var all = [];
   LEVELS.forEach(function(lv) {
+    /* Vocabulaire des textes */
     (TEXTS[lv.id] || []).forEach(function(txt) {
-      txt.vocabulary.forEach(function(v) { all.push({ lv: lv.id, v: v }); });
+      txt.vocabulary.forEach(function(v) {
+        all.push({ lv: lv.id, v: v, src: 'texte', theme: null });
+      });
+    });
+    /* Vocabulaire thématique */
+    (VOCAB_THEMATIC[lv.id] || []).forEach(function(grp) {
+      grp.words.forEach(function(v) {
+        all.push({ lv: lv.id, v: v, src: 'thème', theme: grp.theme });
+      });
     });
   });
   return all;
