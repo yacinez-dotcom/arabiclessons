@@ -2,7 +2,6 @@
    BRIQUE FINALE — APP
    Lit les variables globales définies par les
    briques données (A1_TEXTS, B2_TEXTS, etc.)
-   Ne contient aucune donnée textuelle.
 ═══════════════════════════════════════════════ */
 'use strict';
 
@@ -11,9 +10,7 @@ var strip = function(s) {
   return s.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED]/g, '');
 };
 
-/* ── Assemblage des textes depuis les briques ─
-   Si une brique n'est pas chargée → tableau vide
-   sans erreur, sans casser le reste du site    */
+/* ── Assemblage des textes ─────────────────── */
 var TEXTS = {
   A1: (typeof A1_TEXTS !== 'undefined') ? A1_TEXTS : [],
   A2: (typeof A2_TEXTS !== 'undefined') ? A2_TEXTS : [],
@@ -25,15 +22,18 @@ var TEXTS = {
 
 /* ── État ──────────────────────────────────── */
 var S = {
-  level:  'A1',
-  textId: null,
-  tk:     true,   // tashkeel activé
+  level:       'A1',
+  textId:      null,
+  tk:          true,
+  mode:        'texts',   // 'texts' | 'lessons'
+  filterLevel: 'ALL',
 };
 
 /* ═══════════════════════════════════════════════
    NAVIGATION
 ═══════════════════════════════════════════════ */
 function go(level) {
+  S.mode   = 'texts';
   S.level  = level;
   S.textId = null;
   renderNav();
@@ -41,6 +41,7 @@ function go(level) {
 }
 
 function openText(id) {
+  S.mode   = 'texts';
   S.textId = id;
   renderMain();
   document.getElementById('main').scrollTop = 0;
@@ -48,6 +49,20 @@ function openText(id) {
 
 function goBack() {
   S.textId = null;
+  renderMain();
+}
+
+function goLessons() {
+  S.mode        = 'lessons';
+  S.textId      = null;
+  S.filterLevel = 'ALL';
+  renderNav();
+  renderMain();
+}
+
+function filterLessons(lvl) {
+  S.filterLevel = lvl;
+  document.getElementById('main').scrollTop = 0;
   renderMain();
 }
 
@@ -60,40 +75,49 @@ function toggleTk() {
    RENDU — SIDEBAR
 ═══════════════════════════════════════════════ */
 function renderNav() {
-  document.getElementById('nav').innerHTML = LEVELS.map(function(l) {
-    var active = S.level === l.id ? ' active' : '';
+  var levBtns = LEVELS.map(function(l) {
+    var active = (S.mode === 'texts' && S.level === l.id) ? ' active' : '';
     return '<button class="lvl-btn' + active + '" onclick="go(\'' + l.id + '\')">'
          + '<span class="lvl-tag">' + l.id + '</span>'
          + '<span>' + l.name + '</span>'
          + '</button>';
   }).join('');
+
+  var revActive = S.mode === 'lessons' ? ' active' : '';
+  var revBtn = '<div class="nav-sep"></div>'
+             + '<button class="lvl-btn rev-btn' + revActive + '" onclick="goLessons()">'
+             + '<span class="lvl-tag">📚</span>'
+             + '<span>Révision</span>'
+             + '</button>';
+
+  document.getElementById('nav').innerHTML = levBtns + revBtn;
 }
 
 /* ═══════════════════════════════════════════════
    RENDU — ZONE PRINCIPALE
 ═══════════════════════════════════════════════ */
 function renderMain() {
+  var el = document.getElementById('main');
+  if (S.mode === 'lessons') {
+    el.innerHTML = renderLessons();
+    return;
+  }
   if (S.textId) {
     var txts = TEXTS[S.level] || [];
     var txt  = txts.filter(function(x) { return x.id === S.textId; })[0];
-    if (txt) {
-      document.getElementById('main').innerHTML = renderText(txt);
-      return;
-    }
+    if (txt) { el.innerHTML = renderText(txt); return; }
   }
-  document.getElementById('main').innerHTML = renderOverview();
+  el.innerHTML = renderOverview();
 }
 
-/* ── Vue liste ─────────────────────────────── */
+/* ── Vue liste textes ──────────────────────── */
 function renderOverview() {
   var lv   = LEVELS.filter(function(l) { return l.id === S.level; })[0];
   var txts = TEXTS[S.level] || [];
   var nb   = txts.length;
 
   var cards = nb === 0
-    ? '<div class="empty">✦ Les textes de ce niveau seront ajoutés prochainement.<br>'
-    + '<span style="font-size:.86rem;margin-top:.3rem;display:block">'
-    + 'Consultez A1 ou B2 pour des exemples.</span></div>'
+    ? '<div class="empty">✦ Les textes de ce niveau seront ajoutés prochainement.</div>'
     : '<div class="txt-grid">'
     + txts.map(function(t) {
         return '<div class="txt-card" onclick="openText(\'' + t.id + '\')">'
@@ -105,43 +129,132 @@ function renderOverview() {
 
   return '<div class="lv-hd">'
        + '<h2>' + lv.id + ' — ' + lv.name + '</h2>'
-       + '<p class="sub">' + lv.ar + ' · ' + nb + ' texte' + (nb !== 1 ? 's' : '') + ' disponible' + (nb !== 1 ? 's' : '') + '</p>'
+       + '<p class="sub">' + lv.ar + ' · ' + nb + ' texte' + (nb !== 1 ? 's' : '') + '</p>'
        + '</div>'
        + '<div class="sec-lbl">Textes du niveau ' + lv.id + '</div>'
        + cards
        + '<div class="orn">❖ ✦ ❖</div>'
        + '<div class="sec-lbl">Vocabulaire thématique</div>'
-       + '<div class="empty">Vocabulaire thématique du niveau ' + lv.id
-       + ' — technologie · société · santé · politique · textes coraniques · terminologie islamique — à venir.</div>';
+       + '<div class="empty">Vocabulaire thématique — à venir.</div>';
+}
+
+/* ══════════════════════════════════════════════
+   VUE RÉVISION — toutes les leçons A1 → C2
+══════════════════════════════════════════════ */
+function renderLessons() {
+  var w    = S.tk;
+  var lvl  = S.filterLevel;
+
+  /* Rassembler toutes les leçons dans l'ordre */
+  var all = [];
+  LEVELS.forEach(function(lv) {
+    (TEXTS[lv.id] || []).forEach(function(txt) {
+      all.push({ lv: lv.id, txt: txt });
+    });
+  });
+
+  var filtered = lvl === 'ALL'
+    ? all
+    : all.filter(function(l) { return l.lv === lvl; });
+
+  /* Boutons de filtre */
+  var filters = ['ALL','A1','A2','B1','B2','C1','C2'].map(function(f) {
+    var on  = lvl === f ? ' flt-on' : '';
+    var lbl = f === 'ALL' ? 'Tout (' + all.length + ')' : f;
+    return '<button class="flt-btn' + on + '" onclick="filterLessons(\'' + f + '\')">' + lbl + '</button>';
+  }).join('');
+
+  /* Couleurs par niveau */
+  var lvColors = {A1:'#2e7d32',A2:'#1565c0',B1:'#6a1fb0',B2:'#b5400b',C1:'#7b5b00',C2:'#8d1b1b'};
+
+  /* Cartes de leçon */
+  var cards = filtered.map(function(l) {
+    var g     = l.txt.grammar;
+    var w     = S.tk;
+    var col   = lvColors[l.lv] || '#444';
+    var excer = w ? g.excerptW : g.excerptP;
+
+    /* 3 premières lignes du tableau */
+    var rows = g.table.slice(0, 3).map(function(r) {
+      return '<tr>'
+           + '<td class="ar rev-v">' + (w ? r.v : strip(r.v)) + '</td>'
+           + '<td class="rev-f">'   + r.f + '</td>'
+           + '<td class="ar rev-m">' + (w ? r.m : strip(r.m)) + '</td>'
+           + '<td class="rev-fr">'  + r.fr + '</td>'
+           + '</tr>';
+    }).join('');
+
+    var ths = g.gtblHeaders.map(function(h) {
+      return '<th>' + h + '</th>';
+    }).join('');
+
+    return '<div class="rev-card">'
+         /* ── en-tête ── */
+         + '<div class="rev-card-hd">'
+         +   '<span class="rev-badge" style="background:' + col + '">' + l.lv + '</span>'
+         +   '<div class="rev-concept">' + g.concept + '</div>'
+         + '</div>'
+         /* ── extrait ── */
+         + '<div class="rev-excerpt ar">' + excer + '</div>'
+         /* ── explication courte ── */
+         + '<div class="rev-exp">' + g.exp + '</div>'
+         /* ── tableau compact ── */
+         + '<table class="rev-tbl">'
+         +   '<thead><tr>' + ths + '</tr></thead>'
+         +   '<tbody>' + rows + '</tbody>'
+         + '</table>'
+         /* ── note ── */
+         + '<div class="rev-note">' + g.note + '</div>'
+         + '</div>';
+  }).join('');
+
+  /* Toggle voyelles */
+  var tglLbl = w ? 'Masquer voyelles' : 'Afficher voyelles';
+  var tglCls = w ? 'tgl-btn on' : 'tgl-btn';
+
+  return '<div class="rev-hd">'
+       + '<div class="rev-hd-top">'
+       +   '<div>'
+       +     '<h2 class="ar">الْمُرَاجَعَةُ النَّحْوِيَّةُ</h2>'
+       +     '<p class="sub">Toutes les leçons · A1 → C2 · '
+       +     filtered.length + ' / ' + all.length + ' concepts</p>'
+       +   '</div>'
+       +   '<button class="' + tglCls + '" onclick="toggleTk()">'
+       +     '<span class="tgl-ar">' + (w ? 'أَ' : 'ا') + '</span>'
+       +     tglLbl
+       +   '</button>'
+       + '</div>'
+       + '<div class="rev-filters">' + filters + '</div>'
+       + '</div>'
+       + (filtered.length === 0
+           ? '<div class="empty">Aucune leçon disponible pour ce niveau.</div>'
+           : '<div class="rev-grid">' + cards + '</div>');
 }
 
 /* ── Vue texte ─────────────────────────────── */
 function renderText(txt) {
   var w = S.tk;
 
-  /* Texte arabe interactif */
   var arabicHtml = txt.sentences.map(function(sentence) {
     var words = sentence.map(function(g) {
-      return '<span class="wg">' + (w ? g.w : strip(g.w)) + '<span class="tip">' + g.t + '</span></span>';
+      return '<span class="wg">' + (w ? g.w : strip(g.w))
+           + '<span class="tip">' + g.t + '</span></span>';
     }).join(' ');
     return '<div class="ar-sent">' + words + '</div>';
   }).join('');
 
-  /* Tableau vocabulaire */
   var vocabRows = txt.vocabulary.map(function(v) {
     var rootTag = v.root !== '—'
-      ? '<br><span class="root-tag">' + v.root + '</span>'
-      : '';
+      ? '<br><span class="root-tag">' + v.root + '</span>' : '';
     return '<tr>'
-         + '<td class="td-ar">'  + (w ? v.w : v.p) + '</td>'
-         + '<td class="td-tr">'  + v.tr  + '</td>'
-         + '<td>'                + v.fr  + '</td>'
-         + '<td class="td-fm">'  + v.fm  + rootTag + '</td>'
+         + '<td class="td-ar">' + (w ? v.w : v.p) + '</td>'
+         + '<td class="td-tr">' + v.tr + '</td>'
+         + '<td>' + v.fr + '</td>'
+         + '<td class="td-fm">' + v.fm + rootTag + '</td>'
          + '</tr>';
   }).join('');
 
-  /* Tableau grammaire */
-  var gh = txt.grammar.gtblHeaders || ['Verbe', 'Forme', 'Masdar', 'Signification'];
+  var gh = txt.grammar.gtblHeaders || ['Col1','Col2','Col3','Col4'];
   var gramRows = txt.grammar.table.map(function(r) {
     return '<tr>'
          + '<td class="ar">' + (w ? r.v : strip(r.v)) + '</td>'
@@ -153,32 +266,26 @@ function renderText(txt) {
 
   var tglLabel = w ? 'Masquer les voyelles' : 'Afficher les voyelles';
   var tglAr    = w ? 'أَ' : 'ا';
-  var tglClass = w ? 'tgl-btn on' : 'tgl-btn';
-
-  var thHtml = gh.map(function(h) { return '<th>' + h + '</th>'; }).join('');
+  var thHtml   = gh.map(function(h) { return '<th>' + h + '</th>'; }).join('');
 
   return '<button class="back-btn" onclick="goBack()">← Retour au niveau ' + txt.level + '</button>'
-
        + '<div class="txt-panel">'
        +   '<div class="txt-panel-hd">'
        +     '<div>'
        +       '<div class="txt-title">' + (w ? txt.titleW : txt.titleP) + '</div>'
        +       '<div class="txt-sub">'   + txt.titleFr + '</div>'
        +     '</div>'
-       +     '<button class="' + tglClass + '" onclick="toggleTk()">'
-       +       '<span class="tgl-ar">' + tglAr + '</span>'
-       +       tglLabel
+       +     '<button class="' + (w ? 'tgl-btn on' : 'tgl-btn') + '" onclick="toggleTk()">'
+       +       '<span class="tgl-ar">' + tglAr + '</span>' + tglLabel
        +     '</button>'
        +   '</div>'
        +   '<div class="hint-bar">'
-       +     '<span class="hint-dot hover"></span>Survol → traduction rapide &nbsp;·&nbsp;'
+       +     '<span class="hint-dot hover"></span>Survol → traduction &nbsp;·&nbsp;'
        +     '<span class="hint-dot click"></span>Clic → épingler &nbsp;·&nbsp; Clic ailleurs → fermer'
        +   '</div>'
        +   '<div class="ar-text">' + arabicHtml + '</div>'
        + '</div>'
-
        + '<div class="orn">❖ ✦ ❖</div>'
-
        + '<div class="section">'
        +   '<div class="sec-hd"><span class="sec-ico">📖</span>Vocabulaire nouveau</div>'
        +   '<table class="vtbl">'
@@ -186,7 +293,6 @@ function renderText(txt) {
        +     '<tbody>' + vocabRows + '</tbody>'
        +   '</table>'
        + '</div>'
-
        + '<div class="section">'
        +   '<div class="sec-hd"><span class="sec-ico">📐</span>Leçon de grammaire</div>'
        +   '<div class="gram-box">'
@@ -200,14 +306,14 @@ function renderText(txt) {
 }
 
 /* ═══════════════════════════════════════════════
-   CLIC POUR ÉPINGLER (event delegation)
+   CLIC POUR ÉPINGLER
 ═══════════════════════════════════════════════ */
 document.addEventListener('click', function(e) {
   var wg = e.target.closest('.wg');
   if (wg) {
-    var wasPinned = wg.classList.contains('pinned');
+    var was = wg.classList.contains('pinned');
     document.querySelectorAll('.wg.pinned').forEach(function(el) { el.classList.remove('pinned'); });
-    if (!wasPinned) wg.classList.add('pinned');
+    if (!was) wg.classList.add('pinned');
   } else {
     document.querySelectorAll('.wg.pinned').forEach(function(el) { el.classList.remove('pinned'); });
   }
