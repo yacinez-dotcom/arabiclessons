@@ -456,3 +456,168 @@ aside {
   .txt-panel { padding: 1.1rem; }
   .hint-bar { flex-wrap: wrap; }
 }
+
+/* ══════════════════════════════════════════════
+   VUE RÉVISION GRAMMATICALE
+══════════════════════════════════════════════ */
+
+/* Séparateur dans la sidebar */
+.nav-sep {
+  height: 1px;
+  background: var(--gold);
+  opacity: .25;
+  margin: .6rem .4rem;
+}
+
+/* Bouton Révision dans la sidebar */
+.rev-btn { border-top: none; }
+.rev-btn .lvl-tag { font-size: .9rem; }
+
+/* En-tête de la page révision */
+.rev-hd {
+  margin-bottom: 1.6rem;
+}
+.rev-hd-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.rev-hd h2 {
+  font-family: 'Amiri', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  direction: rtl;
+  margin: 0 0 .2rem;
+}
+
+/* Boutons de filtre par niveau */
+.rev-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+.flt-btn {
+  padding: .28rem .7rem;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--parch-dim);
+  font-size: .78rem;
+  font-family: 'EB Garamond', serif;
+  cursor: pointer;
+  transition: all .15s;
+}
+.flt-btn:hover { background: rgba(212,175,55,.12); color: var(--gold); }
+.flt-btn.flt-on {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 600;
+  border-color: var(--gold);
+}
+
+/* Grille des cartes */
+.rev-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  gap: 1.4rem;
+}
+@media (max-width: 700px) {
+  .rev-grid { grid-template-columns: 1fr; }
+}
+
+/* Carte de leçon */
+.rev-card {
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(212,175,55,.22);
+  border-radius: 6px;
+  padding: 1rem 1.1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  transition: border-color .2s;
+}
+.rev-card:hover { border-color: rgba(212,175,55,.55); }
+
+/* En-tête de carte : badge + concept */
+.rev-card-hd {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+}
+.rev-badge {
+  display: inline-block;
+  min-width: 2rem;
+  text-align: center;
+  padding: .12rem .45rem;
+  border-radius: 4px;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: #fff;
+  flex-shrink: 0;
+  margin-top: .12rem;
+}
+.rev-concept {
+  font-family: 'EB Garamond', serif;
+  font-size: .95rem;
+  color: var(--gold);
+  line-height: 1.35;
+}
+
+/* Extrait arabe */
+.rev-excerpt {
+  font-family: 'Amiri', serif;
+  font-size: 1.12rem;
+  color: var(--parchment);
+  direction: rtl;
+  border-right: 3px solid var(--gold);
+  padding-right: .7rem;
+  opacity: .92;
+  line-height: 1.7;
+}
+
+/* Explication */
+.rev-exp {
+  font-family: 'EB Garamond', serif;
+  font-size: .84rem;
+  color: var(--parch-dim);
+  line-height: 1.55;
+}
+.rev-exp strong { color: var(--gold); font-weight: 600; }
+
+/* Tableau compact */
+.rev-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .78rem;
+}
+.rev-tbl thead th {
+  padding: .2rem .4rem;
+  text-align: left;
+  color: var(--gold);
+  font-family: 'EB Garamond', serif;
+  font-size: .75rem;
+  border-bottom: 1px solid rgba(212,175,55,.2);
+  white-space: nowrap;
+}
+.rev-tbl tbody tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.rev-tbl td { padding: .22rem .4rem; }
+.rev-v { font-family: 'Amiri', serif; color: var(--parchment); direction: rtl; font-size: .92rem; }
+.rev-f { color: var(--parch-dim); font-size: .75rem; }
+.rev-m { font-family: 'Amiri', serif; color: #b9a870; direction: rtl; font-size: .88rem; }
+.rev-fr { color: var(--parch-dim); font-size: .75rem; font-style: italic; }
+
+/* Note pédagogique */
+.rev-note {
+  font-family: 'EB Garamond', serif;
+  font-size: .8rem;
+  color: var(--parch-dim);
+  background: rgba(212,175,55,.06);
+  border-left: 2px solid rgba(212,175,55,.3);
+  padding: .4rem .6rem;
+  border-radius: 0 3px 3px 0;
+  line-height: 1.5;
+}
+.rev-note strong { color: var(--gold); }
