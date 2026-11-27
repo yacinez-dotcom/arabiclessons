@@ -16,8 +16,18 @@ arabic-learning/
         ├── b1.js       ← BRIQUE B1 : à créer quand prêt
         ├── b2.js       ← BRIQUE B2 : textes du niveau B2
         ├── c1.js       ← BRIQUE C1 : à créer quand prêt
-        └── c2.js       ← BRIQUE C2 : à créer quand prêt
+        ├── c2.js       ← BRIQUE C2 : à créer quand prêt
+        ├── cor.js      ← BRIQUE COR : les 60 textes coraniques (niveau clos)
+        └── cor_bilan.js← GÉNÉRÉ : chiffres et index des citations du niveau COR
 ```
+
+## Bilan du niveau COR
+
+Le niveau COR est clos à 60 textes. `js/data/cor_bilan.js` alimente la page « Bilan du niveau COR »
+(bannière en tête du niveau) : chiffres clés, les 60 leçons de grammaire (lues directement dans `cor.js`)
+et l'index des versets cités, sourate par sourate. Ce fichier est **généré** ; ne pas l'éditer à la main.
+Si `cor.js` change, le régénérer (outils `cor_index.py` puis `gen_bilan.py`). S'il est absent, la page
+de bilan disparaît simplement, sans erreur.
 
 ## Règle absolue : strings en backticks
 
