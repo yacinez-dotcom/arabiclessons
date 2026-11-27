@@ -8,6 +8,59 @@ var strip = function(s) {
   return s.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED]/g, '');
 };
 
+/* ── Cellules de tableau : arabe, français ou mixte ── */
+var AR_RE  = /[\u0600-\u06FF]/;
+var LAT_RE = /[A-Za-z\u00C0-\u017F]/;
+var AR_RUN = /[\u0600-\u06FF][\u0600-\u06FF\s\u00B7\u2026()+=\u2192\u2190\-\/]*[\u0600-\u06FF]|[\u0600-\u06FF]/g;
+var cellKind = function(s) {
+  s = (s == null) ? '' : String(s);
+  if (AR_RE.test(s) && !LAT_RE.test(s)) return 'ar';
+  return AR_RE.test(s) ? 'mix' : 'fr';
+};
+var cellText = function(s, w) {
+  s = (s == null) ? '' : String(s);
+  var t = w ? s : strip(s);
+  if (cellKind(s) === 'ar') return t.replace(/\u2192/g, '\u2190');  /* flèche dans le sens de lecture arabe */
+  if (cellKind(s) !== 'mix') return t;
+  return t.replace(AR_RUN, function(m) { return '<span class="ar-in" dir="rtl">' + m.replace(/\u2192/g, '\u2190') + '</span>'; });
+};
+
+/* ── Arabe inséré dans une prose française : isolé pour le sens de lecture ──
+   Une expression arabe coupée par du gras (<strong>…</strong>) reste un seul bloc. */
+var arInline = function(html) {
+  html = String(html == null ? '' : html);
+  var AR = /[\u0600-\u06FF]/, LAT = /[A-Za-z0-9\u00C0-\u017F«»"'’?!:;.,]/;
+  var parts = [];
+  html.split(/(<[^>]+>)/).forEach(function(tok, i) {
+    if (!tok) return;
+    if (i % 2) { parts.push({k: /^<\/?(strong|em|b|i)>$/.test(tok) ? 'tag' : 'block', s: tok}); return; }
+    tok.split(/([\u0600-\u06FF][\u0600-\u06FF\s\u00B7\u2026()+=\u2190\u2192\-\/\u060C]*[\u0600-\u06FF]|[\u0600-\u06FF])/).forEach(function(t, j) {
+      if (!t) return;
+      parts.push({k: (j % 2) ? 'ar' : (/^\s+$/.test(t) ? 'ws' : 'txt'), s: t});
+    });
+  });
+  var out = [], i = 0;
+  while (i < parts.length) {
+    if (parts[i].k !== 'ar') { out.push(parts[i].s); i++; continue; }
+    var j = i, k = i;
+    while (k + 1 < parts.length && (parts[k + 1].k === 'ar' || parts[k + 1].k === 'tag' || parts[k + 1].k === 'ws')) {
+      k++; if (parts[k].k === 'ar') j = k;
+    }
+    var st = i, en = j;                             /* englobe les balises voisines */
+    while (st > 0 && parts[st - 1].k === 'tag' && !/^<\//.test(parts[st - 1].s) && out.length && out[out.length - 1] === parts[st - 1].s) { st--; out.pop(); }
+    while (en + 1 < parts.length && parts[en + 1].k === 'tag' && /^<\//.test(parts[en + 1].s)) en++;
+    var seg = parts.slice(st, en + 1), depth = 0, ok = true;
+    seg.forEach(function(p) { if (p.k === 'tag') { depth += /^<\//.test(p.s) ? -1 : 1; if (depth < 0) ok = false; } });
+    if (ok && depth === 0) {
+      out.push('<span class="ar-in" dir="rtl">' + seg.map(function(p) { return p.s; }).join('').replace(/\u2192/g, '\u2190') + '</span>');
+    } else {
+      seg.forEach(function(p) { out.push(p.k === 'ar' ? '<span class="ar-in" dir="rtl">' + p.s + '</span>' : p.s); });
+    }
+    i = en + 1;
+  }
+  return out.join('');
+};
+
 /* ── Assemblage des textes ─────────────────── */
 var TEXTS = {
   A1:  (typeof A1_TEXTS  !== 'undefined') ? A1_TEXTS  : [],
@@ -87,6 +140,36 @@ function goVocab() {
   renderMain();
 }
 
+function goBilan() {
+  S.mode   = 'bilan';
+  S.level  = 'COR';
+  S.textId = null;
+  renderNav();
+  renderMain();
+  document.getElementById('main').scrollTop = 0;
+}
+
+function openCor(id) {
+  S.mode   = 'texts';
+  S.level  = 'COR';
+  S.textId = id;
+  renderNav();
+  renderMain();
+  document.getElementById('main').scrollTop = 0;
+}
+
+function filterSura(q) {
+  q = (q || '').trim().toLowerCase();
+  var n = 0;
+  Array.prototype.forEach.call(document.querySelectorAll('.bil-sura'), function(el) {
+    var ok = !q || el.getAttribute('data-k').indexOf(q) !== -1;
+    el.style.display = ok ? '' : 'none';
+    if (ok) n++;
+  });
+  var c = document.getElementById('bil-sura-count');
+  if (c) c.textContent = n + ' sourate' + (n > 1 ? 's' : '');
+}
+
 function filterLessons(lvl) {
   S.filterLevel = lvl;
   document.getElementById('main').scrollTop = 0;
@@ -129,7 +212,7 @@ function toggleTk() {
 ═══════════════════════════════════════════════ */
 function renderNav() {
   var levBtns = LEVELS.map(function(l) {
-    var a    = (S.mode === 'texts' && S.level === l.id) ? ' active' : '';
+    var a    = ((S.mode === 'texts' || S.mode === 'bilan') && S.level === l.id) ? ' active' : '';
     var pre  = l.id === 'COR'
       ? '<div class="nav-sep nav-cor-sep"><span>✦ قُرْآنِيّ ✦</span></div>'
       : '';
@@ -160,6 +243,7 @@ function renderMain() {
   var el = document.getElementById('main');
   if (S.mode === 'lessons') { el.innerHTML = renderLessons(); return; }
   if (S.mode === 'vocab')   { el.innerHTML = renderVocab();   return; }
+  if (S.mode === 'bilan' && typeof COR_BILAN !== 'undefined') { el.innerHTML = renderBilan(); return; }
   if (S.textId) {
     var txts = TEXTS[S.level] || [];
     var txt  = txts.filter(function(x) { return x.id === S.textId; })[0];
@@ -185,6 +269,14 @@ function renderOverview() {
        + '<h2>' + lv.id + ' — ' + lv.name + '</h2>'
        + '<p class="sub">' + lv.ar + ' · ' + nb + ' texte' + (nb !== 1 ? 's' : '') + '</p>'
        + '</div>'
+       + (lv.id === 'COR' && typeof COR_BILAN !== 'undefined'
+           ? '<div class="bil-banner" onclick="goBilan()">'
+             + '<div class="bil-banner-ar">حَصِيلَةُ الْمُسْتَوَى</div>'
+             + '<div class="bil-banner-fr"><strong>Bilan du niveau COR</strong> — ' + COR_BILAN.nTexts + ' textes · '
+             + String(COR_BILAN.nVocab).replace(/\B(?=(\d{3})+(?!\d))/g, '\u202F') + ' mots uniques · les ' + COR_BILAN.nTexts + ' leçons de grammaire · index des '
+             + String(COR_BILAN.nVerses).replace(/\B(?=(\d{3})+(?!\d))/g, '\u202F') + ' versets cités, sourate par sourate →</div>'
+             + '</div>'
+           : '')
        + '<div class="sec-lbl">Textes du niveau ' + lv.id + '</div>'
        + cards
        + '<div class="orn">❖ ✦ ❖</div>'
@@ -214,12 +306,11 @@ function renderLessons() {
     var g   = l.txt.grammar;
     var col = LV_COLORS[l.lv] || '#444';
     var rows = g.table.slice(0, 3).map(function(r) {
-      return '<tr>'
-           + '<td class="ar rev-v">' + (w ? r.v : strip(r.v)) + '</td>'
-           + '<td class="rev-f">'   + r.f + '</td>'
-           + '<td class="ar rev-m">' + (w ? r.m : strip(r.m)) + '</td>'
-           + '<td class="rev-fr">'  + r.fr + '</td>'
-           + '</tr>';
+      return '<tr>' + [r.v, r.f, r.m, r.fr].map(function(c) {
+        var k = cellKind(c);
+        var cls = k === 'ar' ? 'rev-ar' : (k === 'mix' ? 'rev-mix' : 'rev-f');
+        return '<td class="' + cls + '">' + cellText(c, w) + '</td>';
+      }).join('') + '</tr>';
     }).join('');
     var ths = g.gtblHeaders.map(function(h) { return '<th>' + h + '</th>'; }).join('');
     return '<div class="rev-card">'
@@ -228,9 +319,9 @@ function renderLessons() {
          +   '<div class="rev-concept">' + g.concept + '</div>'
          + '</div>'
          + '<div class="rev-excerpt ar">' + (w ? g.excerptW : g.excerptP) + '</div>'
-         + '<div class="rev-exp">' + g.exp + '</div>'
+         + '<div class="rev-exp">' + arInline(g.exp) + '</div>'
          + '<table class="rev-tbl"><thead><tr>' + ths + '</tr></thead><tbody>' + rows + '</tbody></table>'
-         + '<div class="rev-note">' + g.note + '</div>'
+         + '<div class="rev-note">' + arInline(g.note) + '</div>'
          + '</div>';
   }).join('');
 
@@ -358,6 +449,91 @@ function renderVocab() {
        + '</div>';
 }
 
+/* ══════════════════════════════════════════════
+   VUE BILAN DU NIVEAU COR
+══════════════════════════════════════════════ */
+function renderBilan() {
+  var B    = COR_BILAN;
+  var w    = S.tk;
+  var txts = TEXTS.COR || [];
+  var num  = function(x) { return String(x).replace(/\B(?=(\d{3})+(?!\d))/g, '\u202F'); };
+  var esc  = function(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;'); };
+  var titleOf = {};
+  txts.forEach(function(t) { titleOf[t.id] = t.titleFr; });
+
+  var tiles = [
+    [B.nTexts, 'textes'],
+    [num(B.nWords), 'mots arabes lus'],
+    [num(B.nVocab), 'mots de vocabulaire uniques'],
+    [num(B.themCovered) + ' / ' + num(B.themTotal), 'mots du vocabulaire thématique (' + Math.round(100 * B.themCovered / B.themTotal) + ' %)'],
+    [B.nSurahs + ' / 114', 'sourates citées'],
+    [num(B.nVerses), 'versets distincts cités']
+  ];
+  var stats = '<div class="bil-stats">' + tiles.map(function(t) {
+    return '<div class="bil-tile"><div class="bil-num">' + t[0] + '</div><div class="bil-lbl">' + t[1] + '</div></div>';
+  }).join('') + '</div>';
+
+  var rows = txts.map(function(t, i) {
+    var parts = t.grammar.concept.split(' — ');
+    var ar = parts[0], fr = parts.slice(1).join(' — ');
+    return '<tr onclick="openCor(\'' + t.id + '\')">'
+         + '<td class="bil-n">' + (i + 1) + '</td>'
+         + '<td class="bil-car">' + (w ? ar : strip(ar)) + '</td>'
+         + '<td class="bil-cfr">' + arInline(fr) + '</td>'
+         + '<td class="bil-txt">' + t.titleFr + '</td>'
+         + '</tr>';
+  }).join('');
+  var lessons = '<table class="bil-tbl"><thead><tr><th>N°</th><th>Notion (arabe)</th><th>Leçon</th><th>Texte</th></tr></thead>'
+              + '<tbody>' + rows + '</tbody></table>';
+
+  var cited = {};
+  B.index.forEach(function(s) { cited[s.s] = true; });
+  var absent = [];
+  for (var k = 1; k <= 114; k++) if (!cited[k]) absent.push(k);
+
+  var suras = B.index.map(function(s) {
+    var full = s.v.length === s.n;
+    var vs = s.v.map(function(v) {
+      return '<span class="bil-v"><b>' + v[0] + '</b>' + v[1].map(function(id) {
+        return '<a onclick="openCor(\'' + id + '\')" title="' + esc(id + ' · ' + (titleOf[id] || '')) + '">' + id.replace('cor-', '') + '</a>';
+      }).join('') + '</span>';
+    }).join('');
+    return '<details class="bil-sura" data-k="' + esc((s.s + ' ' + s.ar + ' ' + s.tr).toLowerCase()) + '">'
+         + '<summary>'
+         +   '<span class="bil-sn">' + s.s + '</span>'
+         +   '<span class="bil-sar">' + s.ar + '</span>'
+         +   '<span class="bil-str">' + s.tr + '</span>'
+         +   '<span class="bil-scount' + (full ? ' full' : '') + '">' + s.v.length + ' / ' + s.n + ' versets' + (full ? ' · sourate entière' : '') + '</span>'
+         + '</summary>'
+         + '<div class="bil-vs">' + vs + '</div>'
+         + '</details>';
+  }).join('');
+
+  return '<div class="rev-hd">'
+       + '<div class="rev-hd-top">'
+       +   '<div><h2 class="ar">حَصِيلَةُ الْمُسْتَوَى الْقُرْآنِيِّ</h2>'
+       +   '<p class="sub">Bilan du niveau COR · ' + B.nTexts + ' textes, du Coran aux textes d\'étude</p></div>'
+       +   '<button class="' + (w ? 'tgl-btn on' : 'tgl-btn') + '" onclick="toggleTk()">'
+       +     '<span class="tgl-ar">' + (w ? 'أَ' : 'ا') + '</span>'
+       +     (w ? 'Masquer voyelles' : 'Afficher voyelles')
+       +   '</button>'
+       + '</div>'
+       + '</div>'
+       + stats
+       + '<div class="sec-lbl">Les ' + txts.length + ' leçons de grammaire</div>'
+       + '<p class="bil-hint">Cliquez sur une ligne pour ouvrir le texte et sa leçon complète.</p>'
+       + lessons
+       + '<div class="orn">❖ ✦ ❖</div>'
+       + '<div class="sec-lbl">Index des citations coraniques</div>'
+       + '<p class="bil-hint">Pour chaque sourate : les versets cités dans les textes du niveau, avec le numéro du texte (cliquable). '
+       +   'Sourates absentes : ' + (absent.length ? absent.join(', ') : 'aucune') + '. '
+       +   'Les textes d\'étude (cor-50 à cor-60) n\'y figurent que pour leurs citations exactes.</p>'
+       + '<div class="voc-search-wrap"><input class="voc-search" type="text" autocomplete="off"'
+       +   ' placeholder="🔍  Filtrer : numéro, nom arabe ou translittéré de la sourate…" oninput="filterSura(this.value)">'
+       +   ' <span id="bil-sura-count" class="bil-hint">' + B.index.length + ' sourates</span></div>'
+       + '<div class="bil-suras">' + suras + '</div>';
+}
+
 /* ── Vue texte ─────────────────────────────── */
 function renderText(txt) {
   var w = S.tk;
@@ -378,15 +554,20 @@ function renderText(txt) {
          + '</tr>';
   }).join('');
   var gh = txt.grammar.gtblHeaders || ['Col1','Col2','Col3','Col4'];
+  var cols = ['v', 'f', 'm', 'fr'];
+  var colAr = cols.map(function(c) {
+    return txt.grammar.table.every(function(r) { return cellKind(r[c]) === 'ar'; });
+  });
   var gramRows = txt.grammar.table.map(function(r) {
-    return '<tr>'
-         + '<td class="ar">' + (w ? r.v : strip(r.v)) + '</td>'
-         + '<td style="color:var(--parch-dim)">' + r.f + '</td>'
-         + '<td class="ar">' + (w ? r.m : strip(r.m)) + '</td>'
-         + '<td style="color:var(--parchment)">' + r.fr + '</td>'
-         + '</tr>';
+    return '<tr>' + cols.map(function(c, i) {
+      var k = cellKind(r[c]);
+      var cls = k === 'ar' ? 'ar' : (k === 'mix' ? 'mix' : (i === 3 ? 'tr' : 'fr'));
+      return '<td class="' + cls + '">' + cellText(r[c], w) + '</td>';
+    }).join('') + '</tr>';
   }).join('');
-  var thHtml = gh.map(function(h) { return '<th>' + h + '</th>'; }).join('');
+  var thHtml = gh.map(function(h, i) {
+    return '<th style="text-align:' + (colAr[i] ? 'right' : 'left') + '">' + h + '</th>';
+  }).join('');
   return '<button class="back-btn" onclick="goBack()">← Retour au niveau ' + txt.level + '</button>'
        + '<div class="txt-panel">'
        +   '<div class="txt-panel-hd">'
@@ -415,9 +596,9 @@ function renderText(txt) {
        +   '<div class="gram-box">'
        +     '<div class="gram-concept">' + txt.grammar.concept + '</div>'
        +     '<div class="gram-excerpt">' + (w ? txt.grammar.excerptW : txt.grammar.excerptP) + '</div>'
-       +     '<p class="gram-exp">'       + txt.grammar.exp     + '</p>'
+       +     '<p class="gram-exp">'       + arInline(txt.grammar.exp)  + '</p>'
        +     '<table class="gtbl"><thead><tr>' + thHtml + '</tr></thead><tbody>' + gramRows + '</tbody></table>'
-       +     '<p class="gram-note">'      + txt.grammar.note    + '</p>'
+       +     '<p class="gram-note">'      + arInline(txt.grammar.note) + '</p>'
        +   '</div>'
        + '</div>';
 }

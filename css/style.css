@@ -430,6 +430,10 @@ aside {
 .gtbl th:nth-child(1), .gtbl th:nth-child(3) { text-align: right; }
 .gtbl td { padding: .42rem .62rem; border-bottom: 1px solid rgba(255,255,255,.05); }
 .gtbl .ar { font-family: 'Amiri', serif; font-size: 1.18rem; direction: rtl; text-align: right; color: var(--gold-lt); }
+.gtbl .fr  { color: var(--parch-dim); }
+.gtbl .tr  { color: var(--parchment); }
+.gtbl .mix { color: var(--parch-dim); }
+.ar-in { font-family: 'Amiri', serif; font-size: 1.12em; color: var(--gold-lt); unicode-bidi: isolate; }
 
 .gram-note {
   font-size: .9rem; font-style: italic;
@@ -649,6 +653,8 @@ aside {
 .rev-f { color: var(--parch-dim); font-size: .75rem; }
 .rev-m { font-family: 'Amiri', serif; color: #b9a870; direction: rtl; font-size: .88rem; }
 .rev-fr { color: var(--parch-dim); font-size: .75rem; font-style: italic; }
+.rev-ar  { font-family: 'Amiri', serif; color: var(--parchment); direction: rtl; text-align: right; font-size: .92rem; }
+.rev-mix { color: var(--parch-dim); font-size: .75rem; }
 
 /* Note pédagogique */
 .rev-note {
@@ -763,3 +769,41 @@ aside {
   font-style: italic;
 }
 
+
+/* ── BILAN DU NIVEAU COR ───────────────────── */
+.bil-banner {
+  border: 1px solid var(--gold); border-radius: 8px; padding: 1rem 1.3rem; margin-bottom: 1.8rem; cursor: pointer;
+  background: linear-gradient(135deg, rgba(200,169,81,.12), rgba(26,61,43,.25)); transition: background .15s;
+}
+.bil-banner:hover { background: linear-gradient(135deg, rgba(200,169,81,.2), rgba(26,61,43,.35)); }
+.bil-banner-ar { font-family: 'Amiri', serif; font-size: 1.35rem; color: var(--gold-lt); direction: rtl; text-align: right; }
+.bil-banner-fr { color: var(--parchment); font-size: .92rem; margin-top: .2rem; }
+.bil-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: .7rem; margin: 1.2rem 0 2rem; }
+.bil-tile { border: 1px solid rgba(200,169,81,.2); border-radius: 6px; padding: .8rem 1rem; background: rgba(255,255,255,.03); }
+.bil-num { font-size: 1.55rem; color: var(--gold); font-weight: 600; }
+.bil-lbl { font-size: .78rem; color: var(--parch-dim); margin-top: .15rem; }
+.bil-hint { color: var(--parch-dim); font-size: .82rem; font-style: italic; margin: -.3rem 0 .8rem; }
+.bil-tbl { width: 100%; border-collapse: collapse; font-size: .86rem; margin-bottom: 1rem; }
+.bil-tbl th { text-align: left; font-size: .66rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold-dk); padding: .4rem .6rem; border-bottom: 1px solid rgba(200,169,81,.25); }
+.bil-tbl td { padding: .45rem .6rem; border-bottom: 1px solid rgba(255,255,255,.05); vertical-align: top; }
+.bil-tbl tbody tr { cursor: pointer; }
+.bil-tbl tbody tr:hover { background: rgba(200,169,81,.07); }
+.bil-n { color: var(--gold-dk); width: 2.5rem; }
+.bil-car { font-family: 'Amiri', serif; font-size: 1.08rem; color: var(--gold-lt); direction: rtl; text-align: right; white-space: nowrap; }
+.bil-cfr { color: var(--parchment); }
+.bil-txt { color: var(--parch-dim); font-style: italic; font-size: .8rem; }
+.bil-suras { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 2rem; }
+.bil-sura { border: 1px solid rgba(200,169,81,.15); border-radius: 5px; background: rgba(255,255,255,.02); }
+.bil-sura summary { cursor: pointer; padding: .5rem .8rem; display: flex; align-items: center; gap: .8rem; list-style: none; }
+.bil-sura summary::-webkit-details-marker { display: none; }
+.bil-sura[open] summary { border-bottom: 1px solid rgba(200,169,81,.15); }
+.bil-sn { color: var(--gold-dk); width: 2rem; font-size: .8rem; }
+.bil-sar { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--gold-lt); min-width: 7rem; }
+.bil-str { color: var(--parch-dim); font-size: .85rem; flex: 1; }
+.bil-scount { font-size: .75rem; color: var(--parch-dim); }
+.bil-scount.full { color: var(--gold); }
+.bil-vs { padding: .6rem .8rem; display: flex; flex-wrap: wrap; gap: .3rem; }
+.bil-v { font-size: .74rem; border: 1px solid rgba(200,169,81,.18); border-radius: 4px; padding: .1rem .35rem; color: var(--parch-dim); }
+.bil-v b { color: var(--parchment); margin-right: .25rem; }
+.bil-v a { color: var(--gold); cursor: pointer; margin-left: .2rem; text-decoration: none; }
+.bil-v a:hover { text-decoration: underline; }
